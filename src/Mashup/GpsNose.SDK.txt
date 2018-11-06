@@ -1,0 +1,10 @@
+GpsNose.SDK
+===========
+
+For end-users
+- homepage: https://www.gpsnose.com
+- user-guide: https://www.gpsnose.com/home/doc
+
+For devs
+- wiki: https://wiki.gpsnose.com
+- mashup-admin: https://www.gpsnose.com/Developer/MashupAdmin

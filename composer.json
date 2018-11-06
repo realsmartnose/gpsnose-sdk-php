@@ -1,0 +1,22 @@
+{
+    "name": "smartnoses/gpsnosesdk",
+    "description": "GpsNose web-integration package - You can use the login, real geo-data and nearby anonymous communication from the GpsNose platform in your web-site.",
+    "keywords": ["GpsNose","PHP"],
+    "homepage": "https://www.gpsnose.com/",
+    "authors": [
+        {
+            "name": "dev",
+            "email": "dev@gpsnose.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "GpsNose\\SDK": "src"
+        }
+    },
+    "version": "1.0.0"
+}
