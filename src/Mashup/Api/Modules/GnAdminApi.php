@@ -20,10 +20,10 @@ class GnAdminApi extends GnApiModuleBase
     /**
      * GnAdminApi __construct
      *
-     * @param GnLoginApi $api
+     * @param GnLoginApiBase $api
      * @param string $loginId
      */
-    public function __construct(GnLoginApi $loginApi)
+    public function __construct(GnLoginApiBase $loginApi)
     {
         parent::__construct($loginApi);
     }

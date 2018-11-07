@@ -71,7 +71,7 @@ abstract class GnApiModuleBase
 
     /**
      *
-     * @var GnLoginApi
+     * @var GnLoginApiBase
      */
     private $_loginApi;
 
@@ -89,9 +89,9 @@ abstract class GnApiModuleBase
     /**
      * GnApiModuleBase __construct
      *
-     * @param GnLoginApi $loginApi
+     * @param GnLoginApiBase $loginApi
      */
-    protected function __construct(GnLoginApi $loginApi = null)
+    protected function __construct(GnLoginApiBase $loginApi = null)
     {
         if ($loginApi != null) {
             $this->_loginApi = $loginApi;
@@ -145,20 +145,24 @@ abstract class GnApiModuleBase
         $this->HandleCallQuota();
 
         $url = GnApi::ApiRoot() . "/{$this->ControllerBasePath}/{$actionName}";
-        $urlParams = [];
 
-        // login needed?
-        if ($this->_loginApi && $this->_loginApi->getIsLoggedIn()) {
-            $urlParams["lid"] = $this->_loginApi->getLoginId();
-        }
-        // ..language
-        $urlParams["lang"] = $this->_loginApi->getLangId();
-        $url = GnUtility::GetQueryStringFromKeyVals($url, $urlParams);
+        if ($this->_loginApi) {
+            $urlParams = [];
+            // login needed?
+            if ($this->_loginApi->getIsLoggedIn()) {
+                $urlParams["lid"] = $this->_loginApi->getLoginId();
+            }
 
-        // app-key needed?
-        if ($this->_loginApi && ! GnUtil::IsNullOrEmpty($this->_loginApi->getAppKey())) {
-            $request->appKey = $this->_loginApi->getAppKey();
+            // ..language
+            $urlParams["lang"] = $this->_loginApi->getLangId();
+            $url = GnUtility::GetQueryStringFromKeyVals($url, $urlParams);
+
+            // app-key needed?
+            if (! GnUtil::IsNullOrEmpty($this->_loginApi->getAppKey())) {
+                $request->appKey = $this->_loginApi->getAppKey();
+            }
         }
+
 
         $reqJson = json_encode($request);
 

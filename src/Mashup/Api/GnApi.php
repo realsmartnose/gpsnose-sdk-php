@@ -40,7 +40,7 @@ class GnApi
      *
      * @param string $loginId If provided: any alphanumerical random string, at least 10 chars long.
      * @param string $langId The 2-letter lowercase ISO-code for language-specific API results
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnLoginApi
+     * @return \GpsNose\SDK\Mashup\Api\Modules\GnLoginApiAdmin
      */
     public function GetLoginApiForAdmin(string $loginId = null, string $langId = null)
     {
@@ -48,7 +48,7 @@ class GnApi
             $langId = GnSettings::$CurrentLangId;
         }
 
-        $loginApi = new Modules\GnLoginApi($this, null, $loginId, true, $langId);
+        $loginApi = new Modules\GnLoginApiAdmin($this, null, $loginId, $langId);
 
         return $loginApi;
     }
@@ -59,15 +59,15 @@ class GnApi
      * @param string $appKey The mashup's appKey
      * @param string $loginId If provided: any alphanumerical random string, at least 10 chars long.
      * @param string $langId  The 2-letter lowercase ISO-code for language-specific API results
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnLoginApi
+     * @return \GpsNose\SDK\Mashup\Api\Modules\GnLoginApiEndUser
      */
-    public function GetLoginApi(string $appKey = null, string $loginId = null, string $langId = null)
+    public function GetLoginApiForEndUser(string $appKey = null, string $loginId = null, string $langId = null)
     {
         if (GnUtil::IsNullOrEmpty($langId)) {
             $langId = GnSettings::$CurrentLangId;
         }
 
-        $loginApi = new Modules\GnLoginApi($this, $appKey, $loginId, false, $langId);
+        $loginApi = new Modules\GnLoginApiEndUser($this, $appKey, $loginId, $langId);
 
         return $loginApi;
     }

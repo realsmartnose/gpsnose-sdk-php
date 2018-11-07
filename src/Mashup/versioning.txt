@@ -1,3 +1,6 @@
+1.0.1
+- REF: GenerateQrCode() available as separate functions for admin/endUser login-apis
+- REF: GnLoginApi -> GnLoginApiBase + GnLoginApiEndUser + GnLoginApiAdmin
 
 1.0.0
 - ADD: Initial Release

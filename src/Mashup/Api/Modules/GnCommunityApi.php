@@ -13,9 +13,9 @@ class GnCommunityApi extends GnApiModuleBase
     /**
      * GnCommunityApi __construct
      *
-     * @param GnLoginApi $loginApi
+     * @param GnLoginApiBase $loginApi
      */
-    public function __construct(GnLoginApi $loginApi)
+    public function __construct(GnLoginApiBase $loginApi)
     {
         parent::__construct($loginApi);
     }

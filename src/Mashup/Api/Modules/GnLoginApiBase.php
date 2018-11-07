@@ -73,11 +73,9 @@ class GnLoginApiBase extends GnApiModuleBase
      *
      * @var bool
      */
-    protected $_isMashupAdmin;
-
-    public function getIsMashupAdmin()
+    public function IsMashupAdmin()
     {
-        return $this->_isMashupAdmin;
+        return $this instanceof GnLoginApiAdmin;
     }
 
     /**
@@ -101,21 +99,19 @@ class GnLoginApiBase extends GnApiModuleBase
     }
 
     /**
-     * GnLoginApi __construct
+     * GnLoginApiBase __construct
      *
      * @param \GpsNose\SDK\Mashup\Api\GnApi $api
      * @param string $appKey
      * @param string $loginId
-     * @param bool $isMashupAdmin
      * @param string $langId
      */
-    public function __construct(GnApi $api, string $appKey = null, string $loginId = null, bool $isMashupAdmin = FALSE, string $langId = null)
+    public function __construct(GnApi $api, string $appKey = null, string $loginId = null, string $langId = null)
     {
         $this->_isLoggedIn = NULL;
 
         $this->_api = $api;
         $this->_appKey = $appKey;
-        $this->_isMashupAdmin = $isMashupAdmin;
 
         $this->_loginId = $loginId ?: GnUtil::NewGuid();
 
@@ -127,104 +123,6 @@ class GnLoginApiBase extends GnApiModuleBase
         $this->_langId = strtolower(substr($langId, 0, 2));
 
         parent::__construct($this);
-    }
-
-    /**
-     * Gets the GnAdminApi for the admin user.
-     * This GnLoginApi instance must be created using <see cref="GnApi.GetLoginApiForAdmin"/> to use this function.
-     *
-     * @throws GnException
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnAdminApi
-     */
-    public function GetAdminApi()
-    {
-        $this->AssureLoggedInAlready();
-
-        if (! $this->_isMashupAdmin) {
-            throw new GnException("not an admin-login; call GetLoginApiForAdmin()");
-        }
-
-        return new GnAdminApi($this);
-    }
-
-    /**
-     * Get the GnNewsApi for an end-user.
-     * Not available for admin-user.
-     *
-     * @throws GnException
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnNewsApi
-     */
-    public function GetNewsApi()
-    {
-        if ($this->_isMashupAdmin) {
-            throw new GnException("news is not for admin login");
-        }
-
-        return new GnNewsApi($this);
-    }
-
-    /**
-     * Get the GnCommentsApi for an end-user.
-     * Not available for admin-user.
-     *
-     * @throws GnException
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnCommentsApi
-     */
-    public function GetCommentsApi()
-    {
-        if ($this->_isMashupAdmin) {
-            throw new GnException("comments is not for admin login");
-        }
-
-        return new GnCommentsApi($this);
-    }
-
-    /**
-     * Get the GnNearbyApi for an end-user.
-     * Not available for admin-user.
-     *
-     * @throws GnException
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnNearbyApi
-     */
-    public function GetNearbyApi()
-    {
-        if ($this->_isMashupAdmin) {
-            throw new GnException("nearby is not for admin login");
-        }
-
-        return new GnNearbyApi($this);
-    }
-
-    /**
-     * Get the GnCommunityApi for an end-user.
-     * Not available for admin-user.
-     *
-     * @throws GnException
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnCommunityApi
-     */
-    public function GetCommunityApi()
-    {
-        if ($this->_isMashupAdmin) {
-            throw new GnException("community is not for admin login");
-        }
-
-        return new GnCommunityApi($this);
-    }
-
-    /**
-     * Get the GnMashupTokensApi for an end-user.
-     * Be careful not to publish your app-key, as this API allows the end-user to read the scanned tokens!
-     * 
-     * @throws GnException
-     * @return \GpsNose\SDK\Mashup\Api\Modules\GnMashupTokensApi
-     */
-    public function GetMashupTokensApi()
-    {
-        if ($this->_isMashupAdmin) {
-            throw new GnException("mashup-tokens not available for admin login");
-        }
-        
-        return new GnMashupTokensApi($this);
     }
 
     /**
@@ -247,18 +145,18 @@ class GnLoginApiBase extends GnApiModuleBase
      * Returns a QR-code image for logging in.
      *
      * @param string $community
+     *            The target mashup community. For mashup-admin, it's the %www.gpsnose.com community.
      * @param boolean $mustJoin
+     *            If the user logging-in must first join the community.
      * @param boolean $needsActivation
+     *            If only activated users are allowed.
      * @param \GpsNose\SDK\Mashup\Model\GnMashupLoginAcl $acls
+     *            What additional params should be returned from the platform.
      * @return array(Byte)
      */
-    public function GenerateQrCode(string $community = GnSettings::GPSNOSE_COMMUNITY, bool $mustJoin = FALSE, bool $needsActivation = FALSE, int $acls = GnMashupLoginAcl::None)
+    protected function GenerateQrCodeInternal($community = GnSettings::GPSNOSE_COMMUNITY, bool $mustJoin = FALSE, bool $needsActivation = FALSE, int $acls = GnMashupLoginAcl::None)
     {
-        if (GnUtil::IsNullOrEmpty($community)) {
-            throw new \InvalidArgumentException("community required");
-        }
-
-        if ($this->_isMashupAdmin) {
+        if ($this->IsMashupAdmin()) {
             if ($community !== GnSettings::GPSNOSE_COMMUNITY) {
                 throw new GnException("community for mashup-admin must be {GnSettings.GPSNOSE_COMMUNITY}");
             }
