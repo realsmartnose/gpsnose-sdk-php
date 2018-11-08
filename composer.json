@@ -3,6 +3,7 @@
     "description": "GpsNose web-integration package - You can use the login, real geo-data and nearby anonymous communication from the GpsNose platform in your web-site.",
     "keywords": ["GpsNose","PHP"],
     "homepage": "https://www.gpsnose.com/",
+    "license": "MIT",
     "authors": [
         {
             "name": "dev",
