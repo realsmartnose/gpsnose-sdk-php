@@ -15,8 +15,7 @@
     },
     "autoload": {
         "psr-4": {
-            "GpsNose\\SDK": "src"
+            "GpsNose\\SDK\\": "src"
         }
-    },
-    "version": "1.0.1"
+    }
 }
