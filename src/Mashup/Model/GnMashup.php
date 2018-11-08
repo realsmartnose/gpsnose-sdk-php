@@ -24,6 +24,8 @@ class GnMashup
             $this->MaxCallsMonthly = $json->{"MaxCallsMonthly"} + 0;
             $this->MaxSubSites = $json->{"MaxSubSites"} + 0;
             $this->MaxHosts = $json->{"MaxHosts"} + 0;
+            $this->MashupTokenCallbackUrl = $json->{"MashupTokenCallbackUrl"};
+            
         }
     }
 
@@ -98,5 +100,11 @@ class GnMashup
      * @var int
      */
     public $MaxHosts = 0;
+
+    /**
+     *
+     * @var string
+     */
+    public $MashupTokenCallbackUrl = "";
 }
 

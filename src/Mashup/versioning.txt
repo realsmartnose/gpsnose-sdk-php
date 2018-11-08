@@ -1,3 +1,10 @@
+1.0.3
+- ADD: GnMashup.MashupTokenCallbackUrl optional property for sync-calling mashup's callback-url
+- ADD: GnMashupToken.CallbackResponse the response from the mashup's callback
+
+1.0.2
+- FIX: Fix component.json
+
 1.0.1
 - REF: GenerateQrCode() available as separate functions for admin/endUser login-apis
 - REF: GnLoginApi -> GnLoginApiBase + GnLoginApiEndUser + GnLoginApiAdmin

@@ -17,6 +17,7 @@ class GnMashupToken
             $this->ScannedTicks = $json->{"ScannedTicks"};
             $this->ScannedLatitude = $json->{"ScannedLatitude"} + 0;
             $this->ScannedLongitude = $json->{"ScannedLongitude"} + 0;
+            $this->CallbackResponse = $json->{"CallbackResponse"};
         }
     }
 
@@ -49,5 +50,11 @@ class GnMashupToken
      * @var number
      */
     public $ScannedLongitude = 0.0;
+
+    /**
+     *
+     * @var string
+     */
+    public $CallbackResponse = "";
 }
 
