@@ -1,3 +1,8 @@
+1.0.4
+- ADD: GnMashupToken.CallbackResponseHttpCode, GnMashupToken.CallbackResponseMessage
+- DEL: GnMashupToken.CallbackResponse
+- ADD: UpdateCommunityWeb() -> mashupTokenCallbackUrl param for defining the optional scan-callback-url
+
 1.0.3
 - ADD: GnMashup.MashupTokenCallbackUrl optional property for sync-calling mashup's callback-url
 - ADD: GnMashupToken.CallbackResponse the response from the mashup's callback

@@ -141,10 +141,12 @@ class GnAdminApi extends GnApiModuleBase
      * @param string $tag
      *            The main web-community, like %www.mydomain.com
      * @param array $hosts
-     *            Optional: allowed calling hosts.
+     *            Optional: allowed calling hosts. If null: will be removed.
+     * @param string $mashupTokenCallbackUrl
+     *            Optional: which mashup callback-url to call sync immediately while scanning the token. If null: will be removed.
      * @throws \InvalidArgumentException
      */
-    public function UpdateCommunityWeb(string $tag = null, array $hosts = [])
+    public function UpdateCommunityWeb(string $tag = null, array $hosts = [], string $mashupTokenCallbackUrl = null)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
@@ -152,7 +154,8 @@ class GnAdminApi extends GnApiModuleBase
 
         $this->ExecuteCall("UpdateCommunityWeb", (object) [
             "tag" => $tag,
-            "hosts" => $hosts
+            "hosts" => $hosts,
+            "mashupTokenCallbackUrl" => $mashupTokenCallbackUrl
         ], GnResponseType::Json, false, PHP_INT_MAX);
     }
 
