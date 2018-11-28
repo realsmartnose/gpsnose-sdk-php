@@ -15,6 +15,7 @@ class GnMashupToken
             $this->Payload = $json->{"Payload"};
             $this->ScannedByLoginName = $json->{"ScannedByLoginName"};
             $this->ScannedTicks = $json->{"ScannedTicks"};
+            $this->RecordedTicks = $json->{"RecordedTicks"};
             $this->ScannedLatitude = $json->{"ScannedLatitude"} + 0;
             $this->ScannedLongitude = $json->{"ScannedLongitude"} + 0;
             $this->CallbackResponseHttpCode = $json->{"CallbackResponseHttpCode"} + 0;
@@ -39,6 +40,12 @@ class GnMashupToken
      * @var string
      */
     public $ScannedTicks = "0";
+
+    /**
+     *
+     * @var string
+     */
+    public $RecordedTicks = "0";
 
     /**
      *

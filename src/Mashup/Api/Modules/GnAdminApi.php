@@ -3,6 +3,7 @@ namespace GpsNose\SDK\Mashup\Api\Modules;
 
 use GpsNose\SDK\Mashup\Framework\GnUtil;
 use GpsNose\SDK\Mashup\Model\GnResponseType;
+use GpsNose\SDK\Mashup\Model\GnCommunityAcl;
 
 /**
  * Used for managing your mashups.
@@ -23,7 +24,7 @@ class GnAdminApi extends GnApiModuleBase
      * @param GnLoginApiBase $api
      * @param string $loginId
      */
-    public function __construct(GnLoginApiBase $loginApi)
+    public function __construct(GnLoginApiAdmin $loginApi)
     {
         parent::__construct($loginApi);
     }
@@ -100,20 +101,24 @@ class GnAdminApi extends GnApiModuleBase
 
     /**
      * Adds a sub-community to an existing validated web-community.
-     * A connected website could have more sub-communities, like %www.funny-sports.net@chess
+     * A connected website could have more sub-communities, like @www.geohamster.com@admins.
+     * A sub-community prefix defines the community protection-level: %=public, @=closed, *=private
      *
      * @param string $tag
      *            The sub-community tag in the form: %www.mydomain.com@subcommunityname
+     * @param integer $acls
+     *            The new sub-community will get these ACLs when access by members.
      * @throws \InvalidArgumentException
      */
-    public function AddSubCommunity(string $tag = null)
+    public function AddSubCommunity(string $tag, int $acls = GnCommunityAcl::CommentsFromMembers | GnCommunityAcl::ListMembers | GnCommunityAcl::MembersInviteMembers)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
         }
 
         $this->ExecuteCall("AddSubCommunity", (object) [
-            "tag" => $tag
+            "tag" => $tag,
+            "acls" => $acls
         ], GnResponseType::Json, false, PHP_INT_MAX);
     }
 
@@ -121,7 +126,7 @@ class GnAdminApi extends GnApiModuleBase
      * Deletes an existing sub-community from a web-community.
      *
      * @param string $tag
-     *            The sub-community tag, like %www.funny-sports.net@chess
+     *            The sub-community tag, like *www.geohamster.com@level-10
      * @throws \InvalidArgumentException
      */
     public function DelSubCommunity(string $tag = null)

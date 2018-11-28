@@ -22,4 +22,5 @@ class GnResponseType
     const ListGnTrack = 27;
     const ListGnComment = 28;
     const ListGnMashupToken = 29;
+    const ListGnMail = 30;
 }

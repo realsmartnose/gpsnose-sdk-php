@@ -91,6 +91,12 @@ class GnLoginApiBase extends GnApiModuleBase
         return $this->_loginId;
     }
 
+    /**
+     * The 2-letter lowercase language-id for language-specific server results.
+     * Some API-calls results are language specific, like for example the items' keywords.
+     *
+     * @var string
+     */
     protected $_langId;
 
     public function getLangId()

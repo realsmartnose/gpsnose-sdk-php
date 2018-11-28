@@ -53,7 +53,7 @@ class GnMashupTokensApi extends GnApiModuleBase
      *            How many tokens to return in one page. Default is max: 50
      * @return \GpsNose\SDK\Mashup\Model\GnLogin|\GpsNose\SDK\Mashup\Model\GnCommunity|\GpsNose\SDK\Mashup\Model\GnComment|array
      */
-    public function GetMashupTokensPage(string $tag, int $lastKnownScanTicks, int $pageSize = 50)
+    public function GetMashupTokensPage(string $tag, int $lastKnownScanTicks = 0, int $pageSize = 50)
     {
         $tokens = $this->ExecuteCall("GetMashupTokensPage", (object) [
             "tag" => $tag,

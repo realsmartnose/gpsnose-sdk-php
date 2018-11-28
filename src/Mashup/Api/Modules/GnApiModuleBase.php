@@ -20,6 +20,7 @@ use GpsNose\SDK\Mashup\Api\GnApi;
 use GpsNose\SDK\Mashup\Framework\GnException;
 use GpsNose\SDK\Framework\GnCache;
 use GpsNose\SDK\Mashup\Model\GnMashupToken;
+use GpsNose\SDK\Mashup\Model\GnMail;
 
 /**
  * Internal base-class for any concrete API module.
@@ -314,6 +315,14 @@ abstract class GnApiModuleBase
                         array_push($mashupTokens, new GnMashupToken($item));
                     }
                     return $mashupTokens;
+                    break;
+
+                case ListGnMail:
+                    $mails = array();
+                    foreach ($json as $item) {
+                        array_push($mails, new GnMail($item));
+                    }
+                    return $mails;
                     break;
 
                 default:

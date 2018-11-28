@@ -42,6 +42,19 @@ class GnLoginApiEndUser extends GnLoginApiBase
     }
 
     /**
+     * The the GnMailsApi for an end-user or the community-creator.
+     *
+     * When the calling user is not logged-in, the community-creator is assumed.
+     * Be careful to first test, if you really want to get and use the community-creator's mails ;-)!
+     *
+     * @return \GpsNose\SDK\Mashup\Api\Modules\GnMailsApi
+     */
+    public function GetMailsApi()
+    {
+        return new GnMailsApi($this);
+    }
+
+    /**
      * Get the GnCommentsApi for an end-user.
      * Not available for admin-user.
      *

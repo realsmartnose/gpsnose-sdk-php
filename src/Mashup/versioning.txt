@@ -1,3 +1,12 @@
+1.0.5
+- ADD: AddSubCommunity() now supports ACLs specification
+- FIX: GnAdminApi ctor, GnLoginApiAdmin access
+- ADD: GnMailsApi, GnMail: sending and reading mails
+- UPD: API calls examples/params set to geohamster.com
+- ADD: GnMashupTokensApi.GetMashupTokensPage() lastKnownScanTicks default = 0
+- FIX: GnAdminApi.UpdateCommunityWeb(): added the missing mashupTokenCallbackUrl
+- ADD: readme.txt
+
 1.0.4
 - ADD: GnMashupToken.CallbackResponseHttpCode, GnMashupToken.CallbackResponseMessage
 - DEL: GnMashupToken.CallbackResponse

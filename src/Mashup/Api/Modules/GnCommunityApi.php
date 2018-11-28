@@ -46,14 +46,14 @@ class GnCommunityApi extends GnApiModuleBase
     /**
      * Get the community details.
      *
-     * @param string $subCommunity
-     *            The sub/community; default is the main web-community, or can be a sub-community like %www.funny-sports.net@chess
+     * @param string $community
+     *            The sub/community; default is the main web-community, or can be a sub-community like %www.geohamster.com@honolulu
      * @return \GpsNose\SDK\Mashup\Model\GnCommunity The community details.
      */
-    public function GetCommunity(string $subCommunity = null)
+    public function GetCommunity(string $community = null)
     {
         $result = $this->ExecuteCall("GetCommunity", (object) [
-            "community" => $subCommunity
+            "community" => $community
         ], GnResponseType::GnCommunity);
 
         return $result;
@@ -74,8 +74,7 @@ class GnCommunityApi extends GnApiModuleBase
     }
 
     /**
-     * Sends an nose-mail invitation to a new community member.
-     * Can be used for automatic nose level-up functionality, like "juniors", "seniors", based on your site's business rules.
+     * Sends a nose-mail invitation to a new community member.
      *
      * @param string $toLoginName
      *            To whom to send the invitation.

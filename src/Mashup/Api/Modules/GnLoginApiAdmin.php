@@ -47,7 +47,7 @@ class GnLoginApiAdmin extends GnLoginApiBase
      * @param string $loginId
      * @param string $langId
      */
-    public function __construct(GnApi $api, $appKey, $loginId, string $langId)
+    public function __construct(GnApi $api, $appKey, $loginId, $langId)
     {
         parent::__construct($api, $appKey, $loginId, $langId);
     }
