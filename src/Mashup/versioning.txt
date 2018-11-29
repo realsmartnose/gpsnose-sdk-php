@@ -6,6 +6,7 @@
 - ADD: GnMashupTokensApi.GetMashupTokensPage() lastKnownScanTicks default = 0
 - FIX: GnAdminApi.UpdateCommunityWeb(): added the missing mashupTokenCallbackUrl
 - ADD: readme.txt
+- ADD: README.md
 
 1.0.4
 - ADD: GnMashupToken.CallbackResponseHttpCode, GnMashupToken.CallbackResponseMessage
