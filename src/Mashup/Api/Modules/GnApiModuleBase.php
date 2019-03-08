@@ -11,6 +11,7 @@ use GpsNose\SDK\Mashup\Model\GnMashup;
 use GpsNose\SDK\Mashup\Model\GnNose;
 use GpsNose\SDK\Mashup\Model\GnNews;
 use GpsNose\SDK\Mashup\Model\GnMember;
+use GpsNose\SDK\Mashup\Model\GnMashupStorageItem;
 use GpsNose\SDK\Mashup\Model\CreatedEntities\GnImpression;
 use GpsNose\SDK\Mashup\Model\CreatedEntities\GnPoI;
 use GpsNose\SDK\Mashup\Model\CreatedEntities\GnEvent;
@@ -21,6 +22,7 @@ use GpsNose\SDK\Mashup\Framework\GnException;
 use GpsNose\SDK\Framework\GnCache;
 use GpsNose\SDK\Mashup\Model\GnMashupToken;
 use GpsNose\SDK\Mashup\Model\GnMail;
+use GpsNose\SDK\Mashup\Framework\GnMapRectangle;
 
 /**
  * Internal base-class for any concrete API module.
@@ -113,6 +115,16 @@ abstract class GnApiModuleBase
     }
 
     /**
+     *
+     * @param array $actionNames
+     */
+    protected function ClearCacheForActionNames(array $actionNames)
+    {
+        foreach ($actionNames as $actionName)
+            $this->ClearCacheForActionName($actionName);
+    }
+
+    /**
      */
     protected function ResetCachedResut()
     {
@@ -163,7 +175,6 @@ abstract class GnApiModuleBase
                 $request->appKey = $this->_loginApi->getAppKey();
             }
         }
-
 
         $reqJson = json_encode($request);
 
@@ -246,6 +257,12 @@ abstract class GnApiModuleBase
                 case GnResponseType::GnComment:
                     return new GnComment($json);
 
+                case GnResponseType::GnMashupStorageItem:
+                    return new GnMashupStorageItem($json);
+
+                case GnResponseType::GnMapRectangle:
+                    return new GnMapRectangle($json);
+
                 case GnResponseType::ListGnMashup:
                     $mashups = array();
                     foreach ($json as $item) {
@@ -323,6 +340,14 @@ abstract class GnApiModuleBase
                         array_push($mails, new GnMail($item));
                     }
                     return $mails;
+                    break;
+
+                case GnResponseType::ListGnMashupStorageItem:
+                    $mashupStorgeItems = array();
+                    foreach ($json as $item) {
+                        array_push($mashupStorgeItems, new GnMashupStorageItem($item));
+                    }
+                    return $mashupStorgeItems;
                     break;
 
                 default:

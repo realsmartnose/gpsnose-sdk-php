@@ -6,6 +6,10 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 class GnMailsApi extends GnApiModuleBase
 {
 
+    private const CLEAR_CACHE_PATTERNS = [
+        "SendMail"
+    ];
+
     /**
      * GnNewsApi __construct
      *
@@ -61,7 +65,7 @@ class GnMailsApi extends GnApiModuleBase
             "mailBody" => $mailBody
         ], GnResponseType::Json, false, PHP_INT_MAX);
 
-        $this->ClearCacheForActionName(CLEAR_CACHE_PATTERNS);
+        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
 
         return $result;
     }

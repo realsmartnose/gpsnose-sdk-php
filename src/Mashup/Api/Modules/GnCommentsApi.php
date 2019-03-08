@@ -11,6 +11,10 @@ use GpsNose\SDK\Mashup\Framework\GnSettings;
 class GnCommentsApi extends GnApiModuleBase
 {
 
+    private const CLEAR_CACHE_PATTERNS = [
+        "GetCommentsPage"
+    ];
+
     /**
      * GnCommentsApi __construct
      *
@@ -58,7 +62,7 @@ class GnCommentsApi extends GnApiModuleBase
             "text" => $text
         ], GnResponseType::Json, false, PHP_INT_MAX);
 
-        $this->ClearCacheForActionName("GetCommentsPage");
+        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
 
         return $result;
     }
@@ -80,6 +84,6 @@ class GnCommentsApi extends GnApiModuleBase
             "text" => $text
         ], GnResponseType::Json, false, PHP_INT_MAX);
 
-        $this->ClearCacheForActionName("GetCommentsPage");
+        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
     }
 }

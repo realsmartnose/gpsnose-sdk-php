@@ -1,3 +1,7 @@
+1.0.6
+- ADD: GnMappingApi and related classes for translating locations into geo-ips
+- ADD: GnStorageApi: use this API to store any key-value pairs into a 'storage' for an user
+
 1.0.5
 - ADD: AddSubCommunity() now supports ACLs specification
 - FIX: GnAdminApi ctor, GnLoginApiAdmin access

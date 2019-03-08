@@ -11,6 +11,8 @@ class GnResponseType
     const GnLogin = 10;
     const GnCommunity = 11;
     const GnComment = 12;
+    const GnMashupStorageItem = 13;
+    const GnMapRectangle = 14;
 
     const ListGnMashup = 20;
     const ListGnNose = 21;
@@ -23,4 +25,5 @@ class GnResponseType
     const ListGnComment = 28;
     const ListGnMashupToken = 29;
     const ListGnMail = 30;
+    const ListGnMashupStorageItem = 31;
 }

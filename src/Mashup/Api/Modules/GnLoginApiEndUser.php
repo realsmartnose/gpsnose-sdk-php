@@ -30,6 +30,16 @@ class GnLoginApiEndUser extends GnLoginApiBase
     }
 
     /**
+     * Gets the utilities related to mapping.
+     *
+     * @return \GpsNose\SDK\Mashup\Api\Modules\GnMappingApi
+     */
+    public function GetGnMappingApi()
+    {
+        return new GnMappingApi($this);
+    }
+
+    /**
      * Get the GnNewsApi for an end-user.
      * Not available for admin-user.
      *
@@ -88,6 +98,17 @@ class GnLoginApiEndUser extends GnLoginApiBase
     public function GetCommunityApi()
     {
         return new GnCommunityApi($this);
+    }
+
+    /**
+     * Get the GnStorageApi for an end-user.
+     * The user must be logged-in.
+     *
+     * @return \GpsNose\SDK\Mashup\Api\Modules\GnStorageApi
+     */
+    public function GetStorageApi()
+    {
+        return new GnStorageApi($this);
     }
 
     /**
