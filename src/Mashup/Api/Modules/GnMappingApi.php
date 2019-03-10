@@ -27,7 +27,6 @@ class GnMappingApi extends GnApiModuleBase
      */
     public function GetLatLonRectangleFromGIp(string $gip)
     {
-        // /// GnMapRectangle
         $result = $this->ExecuteCall("GetLatLonRectangleFromGIp", (object) [
             "gip" => $gip
         ], GnResponseType::GnMapRectangle);

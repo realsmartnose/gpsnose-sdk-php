@@ -246,7 +246,7 @@ abstract class GnApiModuleBase
                     return $resData + 0;
 
                 case GnResponseType::String:
-                    return $resData;
+                    return $json;
 
                 case GnResponseType::GnLogin:
                     return new GnLogin($json);

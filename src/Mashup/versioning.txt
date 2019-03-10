@@ -1,3 +1,6 @@
+1.0.7
+- FIX: Fix json-response of String
+
 1.0.6
 - ADD: GnMappingApi and related classes for translating locations into geo-ips
 - ADD: GnStorageApi: use this API to store any key-value pairs into a 'storage' for an user
