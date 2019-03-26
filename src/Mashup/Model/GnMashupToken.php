@@ -20,6 +20,10 @@ class GnMashupToken
             $this->ScannedLongitude = $json->{"ScannedLongitude"} + 0;
             $this->CallbackResponseHttpCode = $json->{"CallbackResponseHttpCode"} + 0;
             $this->CallbackResponseMessage = $json->{"CallbackResponseMessage"};
+            $this->IsBatchCompleted = boolval($json->{"IsBatchCompleted"});
+            $this->Amount = $json->{"Amount"} + 0;
+            $this->Comment = $json->{"Comment"};
+            $this->IsGpsSharingWanted = boolval($json->{"IsGpsSharingWanted"});
         }
     }
 
@@ -70,5 +74,29 @@ class GnMashupToken
      * @var string
      */
     public $CallbackResponseMessage = "";
+
+    /**
+     *
+     * @var boolean
+     */
+    public $IsBatchCompleted = FALSE;
+
+    /**
+     *
+     * @var int
+     */
+    public $Amount = 0;
+
+    /**
+     *
+     * @var string
+     */
+    public $Comment = "";
+
+    /**
+     *
+     * @var boolean
+     */
+    public $IsGpsSharingWanted = FALSE;
 }
 

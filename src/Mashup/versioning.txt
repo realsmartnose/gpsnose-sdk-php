@@ -1,3 +1,6 @@
+1.0.8
+- ADD: Mashup-Tokens extensions: GnMashupTokenOptions, GnMashupToken, API-calls extensions
+
 1.0.7
 - FIX: Fix json-response of String
 
