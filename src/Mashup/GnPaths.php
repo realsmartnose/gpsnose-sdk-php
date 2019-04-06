@@ -39,7 +39,7 @@ class GnPaths
      * @param string $userName
      * @return string
      */
-    public static function ProfileLink(string $userName = null)
+    public static function ProfileLink(string $userName = NULL)
     {
         $s = static::$HomeUrl . "/{$userName}";
         return $s;
@@ -52,9 +52,9 @@ class GnPaths
      * @param int $size
      * @return string
      */
-    public static function ProfileImage(string $userName = null, int $size = 0)
+    public static function ProfileImage(string $userName = NULL, int $size = 0)
     {
-        $sizeSuffix = size == 0 ? "" : "@{$size}";
+        $sizeSuffix = $size == 0 ? "" : "@{$size}";
         $s = static::$DataUrl . "/profimg/{$userName}{$sizeSuffix}";
         return $s;
     }
@@ -62,12 +62,12 @@ class GnPaths
 
     /**
      * Gets the details-page at www.gpsnose.com for an item-type.
-     * @param GnUrlItemType $itemType
+     * @param int $itemType
      * @param string $itemKey
      * @throws \GpsNose\SDK\Mashup\Framework\GnException
      * @return string
      */
-    public static function GetUrlForDetails(int $itemType = GnUrlItemType::Community, string $itemKey = null)
+    public static function GetUrlForDetails(int $itemType = GnUrlItemType::Community, string $itemKey = NULL)
     {
         switch ($itemType)
         {
@@ -78,11 +78,11 @@ class GnPaths
             case GnUrlItemType::PoI: return static::$HomeUrl . "/poi/detail/{$itemKey}";
             case GnUrlItemType::Track: return static::$HomeUrl . "/tour/detail/{$itemKey}";
         }
-        
+
         throw new GnException("unexpected itemType={$itemType}");
     }
-    
-    
+
+
     /**
      * Returns an image-url from www.gpsnose.com for an item.
      * @param int $itemType
@@ -91,10 +91,10 @@ class GnPaths
      * @throws \GpsNose\SDK\Mashup\Framework\GnException
      * @return string
      */
-    public static function GetUrlForImage(int $itemType = GnUrlItemType::Community, string $itemKey = null, int $sizeType = GnThumbnailSize::Size_Full)
+    public static function GetUrlForImage(int $itemType = GnUrlItemType::Community, string $itemKey = NULL, int $sizeType = GnThumbnailSize::Size_Full)
     {
         $sizeSuffix = $sizeType == GnThumbnailSize::Size_Full ? "" : "@{$sizeType}";
-        
+
         switch ($itemType)
         {
             case GnUrlItemType::Community: return static::$DataUrl . "/commimg/{$itemKey}{$sizeSuffix}";
@@ -106,7 +106,7 @@ class GnPaths
             // track has no image
             case GnUrlItemType::Track: break;
         }
-        
+
         throw new GnException("unexpected itemType={$itemType}");
     }
 }

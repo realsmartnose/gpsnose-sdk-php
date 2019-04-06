@@ -9,9 +9,9 @@ class GnMashupStorageItem
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
-        if ($json != null) {
+        if ($json != NULL) {
             $this->Key = $json->{"Key"};
             $this->Value = $json->{"Value"};
             $this->UpdatedTicks = $json->{"UpdatedTicks"};

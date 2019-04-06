@@ -11,10 +11,10 @@ class GnPoI extends GnAroundBase
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
         parent::__construct($json);
-        if ($json != null) {
+        if ($json != NULL) {
             $this->Name = $json->{"Name"};
             $this->Address = $json->{"Address"};
             $this->RatingCount = $json->{"RatingCount"} + 0;

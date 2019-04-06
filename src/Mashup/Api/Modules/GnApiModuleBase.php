@@ -31,60 +31,54 @@ abstract class GnApiModuleBase
 {
 
     /**
-     *
      * @var int
      */
     private const QUOTA_WAIT_SECS_AFTER_EXCEEDED = 2;
 
     /**
-     *
      * @var int
      */
     private const QUOTA_MAX_CALLS = 3;
 
     /**
-     *
      * @var int
      */
     private const DEFAULT_CACHE_TTL_MINUTES = 15;
 
     /**
-     *
      * @var int
      */
     private $_quota_CallCounter = 0;
 
     /**
-     *
      * @var \DateTime
      */
-    private $_quota_LastCall = null;
+    private $_quota_LastCall = NULL;
 
     /**
-     *
      * @var string
      */
     private $cacheGroup = "";
 
     /**
-     *
      * @var string
      */
     private $cacheKey = "";
 
     /**
-     *
      * @var GnLoginApiBase
      */
     private $_loginApi;
 
+    /**
+     * @return GnLoginApiBase
+     */
     public function getLoginApi()
     {
         return $this->_loginApi;
     }
 
     /**
-     *
      * @var string
      */
     public $ControllerBasePath = "MashupApi";
@@ -94,9 +88,9 @@ abstract class GnApiModuleBase
      *
      * @param GnLoginApiBase $loginApi
      */
-    protected function __construct(GnLoginApiBase $loginApi = null)
+    protected function __construct(GnLoginApiBase $loginApi = NULL)
     {
-        if ($loginApi != null) {
+        if ($loginApi != NULL) {
             $this->_loginApi = $loginApi;
         } else {
             // notice: only GnLoginApi may call this constructor!
@@ -105,7 +99,6 @@ abstract class GnApiModuleBase
     }
 
     /**
-     *
      * @param string $actionName
      */
     protected function ClearCacheForActionName(string $actionName)
@@ -115,7 +108,6 @@ abstract class GnApiModuleBase
     }
 
     /**
-     *
      * @param array $actionNames
      */
     protected function ClearCacheForActionNames(array $actionNames)
@@ -125,6 +117,7 @@ abstract class GnApiModuleBase
     }
 
     /**
+     *
      */
     protected function ResetCachedResut()
     {
@@ -132,7 +125,6 @@ abstract class GnApiModuleBase
     }
 
     /**
-     *
      * @param string $actionName
      * @return string
      */
@@ -153,7 +145,7 @@ abstract class GnApiModuleBase
      * @throws \GpsNose\SDK\Mashup\Framework\GnException
      * @return mixed
      */
-    protected function ExecuteCall(string $actionName, $request, int $responseType = GnResponseType::Json, bool $ignoreNotFound = false, int $cacheTtl = 0)
+    protected function ExecuteCall(string $actionName, $request, int $responseType = GnResponseType::Json, bool $ignoreNotFound = FALSE, int $cacheTtl = 0)
     {
         $this->HandleCallQuota();
 
@@ -198,7 +190,7 @@ abstract class GnApiModuleBase
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type:application/json'
             ));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
             $result = curl_exec($ch);
             curl_close($ch);
 
@@ -212,7 +204,7 @@ abstract class GnApiModuleBase
 
         $json = json_decode($resData);
 
-        if ($json === null) {
+        if ($json === NULL) {
             if (GnApi::$Debug) {
                 GnLogger::Verbose("Response:" . $actionName . " | " . (ctype_print($resData) || substr($resData, 0, 1) === '<' ? $resData : "binary") . " | " . $responseType);
             }
@@ -240,7 +232,7 @@ abstract class GnApiModuleBase
                     return $json;
 
                 case GnResponseType::Boolean:
-                    return strtolower($resData) == 'true';
+                    return strtoupper($resData) == 'TRUE';
 
                 case GnResponseType::Number:
                     return $resData + 0;
@@ -334,7 +326,7 @@ abstract class GnApiModuleBase
                     return $mashupTokens;
                     break;
 
-                case ListGnMail:
+                case GnResponseType::ListGnMail:
                     $mails = array();
                     foreach ($json as $item) {
                         array_push($mails, new GnMail($item));
@@ -363,7 +355,7 @@ abstract class GnApiModuleBase
      */
     private function HandleCallQuota()
     {
-        if ($this->_quota_LastCall == null) {
+        if ($this->_quota_LastCall == NULL) {
             $this->_quota_LastCall = new \DateTime();
             $this->_quota_LastCall->setTimestamp(0);
         }
@@ -393,10 +385,11 @@ abstract class GnApiModuleBase
      * @param string $actionName
      * @param object $request
      * @param string $resultPropName
+     * @param int $cacheTtl
      */
     protected function SimpleResultCall(string $actionName, $request, string $resultPropName, int $cacheTtl = 0)
     {
-        $response = $this->ExecuteCall($actionName, $request, GnResponseType::Json, false, $cacheTtl);
+        $response = $this->ExecuteCall($actionName, $request, GnResponseType::Json, FALSE, $cacheTtl);
         $result = $response->{$resultPropName};
         return $result;
     }

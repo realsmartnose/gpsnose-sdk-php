@@ -27,7 +27,6 @@ class GnLoginApiBase extends GnApiModuleBase
 {
 
     /**
-     *
      * @var string
      */
     public $ControllerBasePath = "Login";
@@ -38,6 +37,9 @@ class GnLoginApiBase extends GnApiModuleBase
      */
     protected $_api;
 
+    /**
+     * @return \GpsNose\SDK\Mashup\Api\GnApi;
+     */
     public function getApi()
     {
         return $this->_api;
@@ -49,6 +51,9 @@ class GnLoginApiBase extends GnApiModuleBase
      */
     protected $_appKey;
 
+    /**
+     * @return string;
+     */
     public function getAppKey()
     {
         return $this->_appKey;
@@ -62,7 +67,10 @@ class GnLoginApiBase extends GnApiModuleBase
      */
     protected $_isLoggedIn;
 
-    public function getIsLoggedIn()
+    /**
+     * @return bool;
+     */
+     public function getIsLoggedIn()
     {
         return $this->_isLoggedIn;
     }
@@ -112,7 +120,7 @@ class GnLoginApiBase extends GnApiModuleBase
      * @param string $loginId
      * @param string $langId
      */
-    public function __construct(GnApi $api, string $appKey = null, string $loginId = null, string $langId = null)
+    public function __construct(GnApi $api, string $appKey = NULL, string $loginId = NULL, string $langId = NULL)
     {
         $this->_isLoggedIn = NULL;
 
@@ -122,7 +130,7 @@ class GnLoginApiBase extends GnApiModuleBase
         $this->_loginId = $loginId ?: GnUtil::NewGuid();
 
         // language must be supplied and will be only the 2-letter lowevercase ISO-code
-        if (GNUtil::IsNullOrEmpty($langId) || strlen($langId) < 2) {
+        if (GnUtil::IsNullOrEmpty($langId) || strlen($langId) < 2) {
             throw new GnException("langId must be supplied");
         }
 
@@ -138,7 +146,7 @@ class GnLoginApiBase extends GnApiModuleBase
      */
     public function AssureLoggedInAlready()
     {
-        if ($this->_isLoggedIn == null) {
+        if ($this->_isLoggedIn == NULL) {
             $this->GetVerified();
         }
 
@@ -152,11 +160,11 @@ class GnLoginApiBase extends GnApiModuleBase
      *
      * @param string $community
      *            The target mashup community. For mashup-admin, it's the %www.gpsnose.com community.
-     * @param boolean $mustJoin
+     * @param bool $mustJoin
      *            If the user logging-in must first join the community.
-     * @param boolean $needsActivation
+     * @param bool $needsActivation
      *            If only activated users are allowed.
-     * @param \GpsNose\SDK\Mashup\Model\GnMashupLoginAcl $acls
+     * @param int $acls
      *            What additional params should be returned from the platform.
      * @return array(Byte)
      */
@@ -192,14 +200,14 @@ class GnLoginApiBase extends GnApiModuleBase
     public function GetVerified()
     {
         // mark as already-called
-        $this->_isLoggedIn = false;
+        $this->_isLoggedIn = FALSE;
 
         $gnLoginResult = $this->ExecuteCall("GetVerified", (object) [
             "loginId" => $this->_loginId
-        ], GnResponseType::GnLogin, false, PHP_INT_MAX);
+        ], GnResponseType::GnLogin, FALSE, PHP_INT_MAX);
 
-        if ($gnLoginResult != null && ! GnUtil::IsNullOrEmpty($gnLoginResult->LoginName)) {
-            $this->_isLoggedIn = true;
+        if ($gnLoginResult != NULL && ! GnUtil::IsNullOrEmpty($gnLoginResult->LoginName)) {
+            $this->_isLoggedIn = TRUE;
         }
 
         return $gnLoginResult;
@@ -211,13 +219,13 @@ class GnLoginApiBase extends GnApiModuleBase
      * The TTL is 30 minutes.
      * When you need to keep the logged-in state, you can call this once every 25 minutes or so.
      *
-     * @return boolean
+     * @return bool
      */
     public function CheckIfIsStillLoggedId()
     {
         $gnLoginResult = $this->ExecuteCall("IsStillLoggedIn", (object) [
             "loginId" => $this->_loginId
-        ], GnResponseType::Boolean, false, PHP_INT_MAX);
+        ], GnResponseType::Boolean, FALSE, PHP_INT_MAX);
 
         return $gnLoginResult;
     }

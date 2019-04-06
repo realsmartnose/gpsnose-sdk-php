@@ -13,6 +13,9 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 class GnStorageApi extends GnApiModuleBase
 {
 
+    /**
+     * @var array
+     */
     private const CLEAR_CACHE_PATTERNS = [
         "PutStorageItem"
     ];
@@ -37,7 +40,7 @@ class GnStorageApi extends GnApiModuleBase
      * @param string $ownerUserName
      * @return array(\GpsNose\SDK\Mashup\Model\GnMashupStorageItem)
      */
-    public function GetStorageItemsPage(string $storage, int $pageSize = 50, string $lastKnownKey = null, string $ownerUserName = null)
+    public function GetStorageItemsPage(string $storage, int $pageSize = 50, string $lastKnownKey = NULL, string $ownerUserName = NULL)
     {
         $result = $this->ExecuteCall("GetStorageItemsPage", (object) [
             "storage" => $storage,
@@ -59,7 +62,7 @@ class GnStorageApi extends GnApiModuleBase
      * @param string $ownerUserName
      * @return \GpsNose\SDK\Mashup\Model\GnMashupStorageItem
      */
-    public function GetStorageItem(string $storage, string $key, string $ownerUserName = null)
+    public function GetStorageItem(string $storage, string $key, string $ownerUserName = NULL)
     {
         $result = $this->ExecuteCall("GetStorageItem", (object) [
             "storage" => $storage,
@@ -72,18 +75,18 @@ class GnStorageApi extends GnApiModuleBase
 
     /**
      * Puts/deletes a storage-item into/from a specific storage for an user.
-     * To delete an item, set the value to null.
+     * To delete an item, set the value to NULL.
      *
      * @param string $storage
      *            The storage name: use this as you like, it's a kind of "table" name for organizing your key/values for an user.
      * @param string $key
      *            The item's key: most non-special chars can be used.
      * @param object $value
-     *            The item's value or null: anything can be used, but the JSON serialized value should be less than approx 60KB.
+     *            The item's value or NULL: anything can be used, but the JSON serialized value should be less than approx 60KB.
      * @param string $ownerUserName
      *            Whom the item will belong; default is the API caller. Only the mashup-creator is allowed to override the owner's name.
      */
-    public function PutStorageItem(string $storage, string $key, object $value, string $ownerUserName = null)
+    public function PutStorageItem(string $storage, string $key, object $value, string $ownerUserName = NULL)
     {
         // if the value is already a string, leave it as-is; otherwise, get the json
         $json = json_encode($value);
@@ -95,6 +98,6 @@ class GnStorageApi extends GnApiModuleBase
             "ownerUserName" => $ownerUserName
         ]);
 
-        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
+        $this->ClearCacheForActionNames($this::CLEAR_CACHE_PATTERNS);
     }
 }

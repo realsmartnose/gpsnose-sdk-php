@@ -14,9 +14,9 @@ class GnMapPoint
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
-        if ($json != null) {
+        if ($json != NULL) {
             $this->Latitude = $json->{"Latitude"} + 0;
             $this->Longitude = $json->{"Longitude"} + 0;
         }
@@ -34,4 +34,3 @@ class GnMapPoint
      */
     public $Longitude = 0.0;
 }
-

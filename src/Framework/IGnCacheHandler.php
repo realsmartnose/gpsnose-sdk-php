@@ -3,8 +3,26 @@ namespace GpsNose\SDK\Framework;
 
 interface IGnCacheHandler
 {
+    /**
+     * @param string $key
+     */
     function get(string $key);
+
+    /**
+     * @param string $key
+     * @param string $group
+     * @param string $val
+     * @param int $expiriesIn
+     */
     function set(string $key, string $group, $val, $expiriesIn);
-    function deleteKey(string $key = null);
-    function deleteGroup(string $keyPattern = null);
+
+    /**
+     * @param string $key
+     */
+    function deleteKey(string $key = NULL);
+
+    /**
+     * @param string $keyPattern
+     */
+    function deleteGroup(string $keyPattern = NULL);
 }

@@ -6,12 +6,12 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 
 /**
  * Use this API to generate and read the user-scanned QR-tokens for your mashup site.
- * 
+ *
  * These QR-tokens are general-purpose, i.e. you generate a "token", which is an QR-code.
  * Such QR-code can be printed/sent somewhere, so your community-members can scan it.
  * Later, your website service pulls these tokens and get who/where/when/what was scanned.
  * Imagine any membership-workflows, geo-games, check-ins in the field etc.
- * 
+ *
  * Notice: never give your app-key away, as it can be used for reading the scanned tokens.
  * The code-generation API call needs a valid user-login (so the later scanned-code has this creator-information),
  * but the reading service has no user-login when calling the API, only the app-key, when reading the scanned-tokens data.
@@ -22,8 +22,7 @@ class GnMashupTokensApi extends GnApiModuleBase
     /**
      * GnAdminApi __construct
      *
-     * @param GnLoginApiBase $api
-     * @param string $loginId
+     * @param GnLoginApiBase $loginApi
      */
     public function __construct(GnLoginApiBase $loginApi)
     {
@@ -39,17 +38,23 @@ class GnMashupTokensApi extends GnApiModuleBase
      *            Any custom data, which can be read-in as scanned-tokens by the mashup-site.
      * @param int $validToTicks
      *            Until when is the token valid; default=0: forever
+     * @param float $valuePerUnit
+     *
+     * @param string $label
+     *
      * @param int $options
      *            App-options for the UI when scanning this token.
      * @return mixed The QR-image
      */
-    public function GenerateQrTokenForMashup(string $payload, int $validToTicks = 0, int $options = GnMashupTokenOptions::NoOptions)
+    public function GenerateQrTokenForMashup(string $payload, int $validToTicks = 0, float $valuePerUnit = 0.0, string $label = NULL, int $options = GnMashupTokenOptions::NoOptions)
     {
         $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object) [
             "payload" => $payload,
             "validToTicks" => $validToTicks,
+            "valuePerUnit" => $valuePerUnit,
+            "label" => $label,
             "options" => $options
-        ], GnResponseType::Json, false, 24 * 60 * 60);
+        ], GnResponseType::Json, FALSE, 24 * 60 * 60);
 
         return $buf;
     }

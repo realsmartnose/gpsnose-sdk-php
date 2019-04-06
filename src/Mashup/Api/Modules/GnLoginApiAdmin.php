@@ -15,7 +15,7 @@ class GnLoginApiAdmin extends GnLoginApiBase
     /**
      * Generate the login QR-code for the admin-user.
      *
-     * @param \GpsNose\SDK\Mashup\Model\GnMashupLoginAcl $acls
+     * @param int $acls
      * @return array(Byte)
      */
     public function GenerateQrCode(int $acls = GnMashupLoginAcl::None)

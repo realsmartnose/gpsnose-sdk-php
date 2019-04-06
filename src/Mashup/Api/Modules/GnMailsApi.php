@@ -6,6 +6,9 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 class GnMailsApi extends GnApiModuleBase
 {
 
+    /**
+     * @var array
+     */
     private const CLEAR_CACHE_PATTERNS = [
         "SendMail"
     ];
@@ -34,7 +37,7 @@ class GnMailsApi extends GnApiModuleBase
      *            The maximum mails to be returned in one page. Default max is 20 items.
      * @return array(\GpsNose\SDK\Mashup\Model\GnMail) The mails page of the community-creator.
      */
-    public function GetMailsPage(int $lastKnownTicks = 0, int $pageSize = null)
+    public function GetMailsPage(int $lastKnownTicks = 0, int $pageSize = NULL)
     {
         $result = $this->ExecuteCall("GetMailsPage", (object) [
             "lastKnownTicks" => $lastKnownTicks,
@@ -63,9 +66,9 @@ class GnMailsApi extends GnApiModuleBase
         $result = $this->ExecuteCall("SendMail", (object) [
             "toLoginName" => $toLoginName,
             "mailBody" => $mailBody
-        ], GnResponseType::Json, false, PHP_INT_MAX);
+        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
 
-        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
+        $this->ClearCacheForActionNames($this::CLEAR_CACHE_PATTERNS);
 
         return $result;
     }

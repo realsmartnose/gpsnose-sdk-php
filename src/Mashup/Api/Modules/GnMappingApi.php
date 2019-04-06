@@ -6,6 +6,9 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 class GnMappingApi extends GnApiModuleBase
 {
 
+    /**
+     * @var int
+     */
     public const MAX_ZOOM = 28;
 
     /**
@@ -45,7 +48,7 @@ class GnMappingApi extends GnApiModuleBase
      *            Zoom level [0..28]
      * @return string The geo-ip encoded location with a given zoom.
      */
-    public function GetGipFromLatLon(float $lat, float $lon, int $zoom = MAX_ZOOM)
+    public function GetGipFromLatLon(float $lat, float $lon, int $zoom = $this::MAX_ZOOM)
     {
         $result = $this->ExecuteCall("GetGipFromLatLon", (object) [
             "lat" => $lat,

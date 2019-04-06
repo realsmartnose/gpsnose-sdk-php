@@ -9,9 +9,9 @@ class GnMashup
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
-        if ($json != null) {
+        if ($json != NULL) {
             $this->CommunityTag = $json->{"CommunityTag"};
             $this->ValidationKey = $json->{"ValidationKey"};
             $this->AppKey = $json->{"AppKey"};
@@ -25,7 +25,7 @@ class GnMashup
             $this->MaxSubSites = $json->{"MaxSubSites"} + 0;
             $this->MaxHosts = $json->{"MaxHosts"} + 0;
             $this->MashupTokenCallbackUrl = $json->{"MashupTokenCallbackUrl"};
-            
+
         }
     }
 
@@ -107,4 +107,3 @@ class GnMashup
      */
     public $MashupTokenCallbackUrl = "";
 }
-

@@ -11,6 +11,9 @@ use GpsNose\SDK\Mashup\Framework\GnSettings;
 class GnCommentsApi extends GnApiModuleBase
 {
 
+    /**
+     * @var array
+     */
     private const CLEAR_CACHE_PATTERNS = [
         "GetCommentsPage"
     ];
@@ -34,7 +37,7 @@ class GnCommentsApi extends GnApiModuleBase
      * @param int $lastKnownTicks
      * @return array(\GpsNose\SDK\Mashup\Model\GnComment)
      */
-    public function GetCommentsPage(int $itemType = GnCommentItemType::Community, string $itemKey = null, int $pageSize = null, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
+    public function GetCommentsPage(int $itemType = GnCommentItemType::Community, string $itemKey = NULL, int $pageSize = NULL, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
     {
         $result = $this->ExecuteCall("GetCommentsPage", (object) [
             "itemType" => $itemType,
@@ -54,15 +57,15 @@ class GnCommentsApi extends GnApiModuleBase
      * @param string $itemKey
      * @return string
      */
-    public function AddComment(string $text, int $itemType = GnCommentItemType::Community, string $itemKey = null)
+    public function AddComment(string $text, int $itemType = GnCommentItemType::Community, string $itemKey = NULL)
     {
         $result = $this->ExecuteCall("AddComment", (object) [
             "itemType" => $itemType,
             "itemKey" => $itemKey,
             "text" => $text
-        ], GnResponseType::Json, false, PHP_INT_MAX);
+        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
 
-        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
+        $this->ClearCacheForActionNames($this::CLEAR_CACHE_PATTERNS);
 
         return $result;
     }
@@ -75,15 +78,15 @@ class GnCommentsApi extends GnApiModuleBase
      * @param int $itemType
      * @param string $itemKey
      */
-    public function UpdateComment(string $commentTicks, string $text, int $itemType = GnCommentItemType::Community, string $itemKey = null)
+    public function UpdateComment(string $commentTicks, string $text, int $itemType = GnCommentItemType::Community, string $itemKey = NULL)
     {
         $this->ExecuteCall("UpdateComment", (object) [
             "commentTicks" => ($commentTicks + 0),
             "itemType" => $itemType,
             "itemKey" => $itemKey,
             "text" => $text
-        ], GnResponseType::Json, false, PHP_INT_MAX);
+        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
 
-        $this->ClearCacheForActionNames(CLEAR_CACHE_PATTERNS);
+        $this->ClearCacheForActionNames($this::CLEAR_CACHE_PATTERNS);
     }
 }

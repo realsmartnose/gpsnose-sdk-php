@@ -11,10 +11,10 @@ class GnTrack extends GnAroundBase
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
         parent::__construct($json);
-        if ($json != null) {
+        if ($json != NULL) {
             $this->Name = $json->{"Name"};
             $this->Description = $json->{"Description"};
             $this->TrackType = $json->{"TrackType"} + 0;

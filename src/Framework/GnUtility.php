@@ -4,26 +4,33 @@ namespace GpsNose\Framework;
 class GnUtility
 {
 
+    /**
+     * Returns the value of a param from a query-string
+     *
+     * @param string $url
+     * @param array $keyVals
+     * @return string
+     */
     public static function GetQueryStringFromKeyVals(string $url, array $keyVals)
     {
-        if ($url == null) {
+        if ($url == NULL) {
             throw new \InvalidArgumentException('url');
         }
 
-        if ($keyVals == null) {
+        if ($keyVals == NULL) {
             throw new \InvalidArgumentException('keyVals');
         }
 
         $anchorIndex = strpos($url, '#');
         $resultUri = $url;
         $anchorText = "";
-        if ($anchorIndex !== false) {
+        if ($anchorIndex !== FALSE) {
             $anchorText = substr($url, $anchorIndex);
             $resultUri = substr($url, 0, $anchorIndex);
         }
 
         $queryIndex = strpos($resultUri, '?');
-        $hasQuery = $queryIndex !== false;
+        $hasQuery = $queryIndex !== FALSE;
 
         $sb = '';
         $sb .= $resultUri;
@@ -32,7 +39,7 @@ class GnUtility
             $sb .= urlencode($keyKey);
             $sb .= '=';
             $sb .= urlencode($keyVal);
-            $hasQuery = true;
+            $hasQuery = TRUE;
         }
 
         $sb .= $anchorText;

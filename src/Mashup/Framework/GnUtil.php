@@ -8,7 +8,7 @@ class GnUtil
      * IsNullOrEmpty
      *
      * @param mixed $input
-     * @return boolean
+     * @return bool
      */
     public static function IsNullOrEmpty($input)
     {
@@ -36,7 +36,7 @@ class GnUtil
      * TicksFromDate
      *
      * @param \DateTime $date
-     * @return number
+     * @return int
      */
     public static function TicksFromDate(\DateTime $date)
     {
@@ -65,7 +65,7 @@ class GnUtil
 
     /**
      * Creates a random string
-     * 
+     *
      * @param int $length
      * @return string
      */

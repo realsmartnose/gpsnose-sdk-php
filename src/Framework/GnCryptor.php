@@ -6,10 +6,19 @@ use GpsNose\SDK\Framework\Logging\GnLogger;
 class GnCryptor
 {
 
+    /**
+     * @var string
+     */
     public static $pass = NULL;
 
+    /**
+     * @var string
+     */
     private static $algorithm = "AES-256-ECB";
 
+    /**
+     * GnCryptor __construct
+     */
     public function __construct()
     {
         if (! self::$pass) {
@@ -18,6 +27,12 @@ class GnCryptor
         }
     }
 
+    /**
+     * Encript data
+     *
+     * @param string $data
+     * @return string
+     */
     public function encrypt($data)
     {
         try {
@@ -27,6 +42,12 @@ class GnCryptor
         }
     }
 
+    /**
+     * Decrypt data
+     *
+     * @param string $data
+     * @return string
+     */
     public function decrypt($data)
     {
         try {

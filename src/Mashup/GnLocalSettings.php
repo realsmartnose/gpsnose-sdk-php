@@ -28,8 +28,11 @@ class GnLocalSettings
      * Returns the item's placeholder image path for things like img's onerror usage.
      * When an item's image doesn't exist, you can set the img's error-handler to set this placeholder instead.
      * &lt;img src="..." onerror="this.src='GetEmptyImagePath(...)'" /&gt;
+     * @param int $itemType
+     * @param string $itemKey
+     * @return string
      */
-    public static function GetEmptyImagePath(int $itemType = GnUrlItemType::Impression, string $itemKey = null)
+    public static function GetEmptyImagePath(int $itemType = GnUrlItemType::Impression, string $itemKey = NULL)
     {
         $fileName = "EmptyImage.png";
 

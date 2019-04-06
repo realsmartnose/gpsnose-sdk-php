@@ -9,9 +9,9 @@ class GnLogin
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
-        if ($json != null) {
+        if ($json != NULL) {
             $this->LoginName = $json->{"LoginName"};
             $this->IsActivated = $json->{"IsActivated"};
             $this->FullName = $json->{"FullName"};
@@ -31,9 +31,9 @@ class GnLogin
 
     /**
      *
-     * @var boolean
+     * @var bool
      */
-    public $IsActivated = false;
+    public $IsActivated = FALSE;
 
     /**
      *
@@ -55,9 +55,9 @@ class GnLogin
 
     /**
      *
-     * @var boolean
+     * @var bool
      */
-    public $IsSafeMode = false;
+    public $IsSafeMode = FALSE;
 
     /**
      *

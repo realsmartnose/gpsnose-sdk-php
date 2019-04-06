@@ -9,7 +9,7 @@ class GnAuthentication
     /**
      * IsAuthenticatedRequest
      *
-     * @return boolean
+     * @return bool
      */
     public static function IsAuthenticatedRequest()
     {
@@ -36,7 +36,7 @@ class GnAuthentication
     {
         if (static::IsAuthenticatedRequest()) {
             unset($_COOKIE['GpsNoseAuthentication']);
-            setcookie('GpsNoseAuthentication', null, time() - 3600, '/');
+            setcookie('GpsNoseAuthentication', NULL, time() - 3600, '/');
         }
     }
 
@@ -57,6 +57,6 @@ class GnAuthentication
             $gnPrincipal->ProfileTags = $json->{"ProfileTags"};
             return $gnPrincipal;
         }
-        return null;
+        return NULL;
     }
 }

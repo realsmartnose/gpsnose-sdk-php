@@ -9,9 +9,9 @@ class GnMashupToken
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
-        if ($json != null) {
+        if ($json != NULL) {
             $this->Payload = $json->{"Payload"};
             $this->ScannedByLoginName = $json->{"ScannedByLoginName"};
             $this->ScannedTicks = $json->{"ScannedTicks"};
@@ -24,6 +24,11 @@ class GnMashupToken
             $this->Amount = $json->{"Amount"} + 0;
             $this->Comment = $json->{"Comment"};
             $this->IsGpsSharingWanted = boolval($json->{"IsGpsSharingWanted"});
+            $this->ValuePerUnit = $json->{"ValuePerUnit"} + 0;
+            $this->Label = $json->{"Label"};
+            $this->ValidUntilTicks = $json->{"ValidUntilTicks"};
+            $this->CreationTicks = $json->{"CreationTicks"};
+            $this->CreatedByLoginName = $json->{"CreatedByLoginName"};
         }
     }
 
@@ -53,13 +58,13 @@ class GnMashupToken
 
     /**
      *
-     * @var number
+     * @var float
      */
     public $ScannedLatitude = 0.0;
 
     /**
      *
-     * @var number
+     * @var float
      */
     public $ScannedLongitude = 0.0;
 
@@ -77,7 +82,7 @@ class GnMashupToken
 
     /**
      *
-     * @var boolean
+     * @var bool
      */
     public $IsBatchCompleted = FALSE;
 
@@ -95,8 +100,37 @@ class GnMashupToken
 
     /**
      *
-     * @var boolean
+     * @var bool
      */
     public $IsGpsSharingWanted = FALSE;
-}
 
+    /**
+     *
+     * @var float
+     */
+    public $ValuePerUnit = 0.0;
+
+    /**
+     *
+     * @var string
+     */
+    public $Label = "";
+
+    /**
+     *
+     * @var string
+     */
+    public $ValidUntilTicks = "0";
+
+    /**
+     *
+     * @var string
+     */
+    public $CreationTicks = "0";
+
+    /**
+     *
+     * @var string
+     */
+    public $CreatedByLoginName = "0";
+}

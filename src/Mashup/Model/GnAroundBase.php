@@ -9,9 +9,9 @@ class GnAroundBase
      *
      * @param object $json
      */
-    public function __construct($json = null)
+    public function __construct($json = NULL)
     {
-        if ($json != null) {
+        if ($json != NULL) {
             $this->Creator = $json->{"Creator"};
             $this->CreationTicks = $json->{"CreationTicks"};
             $this->Keywords = $json->{"Keywords"};

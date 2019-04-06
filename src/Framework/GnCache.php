@@ -10,8 +10,8 @@ class GnCache
 
     /**
      * Disables the cache
-     * 
-     * @var boolean
+     *
+     * @var bool
      */
     public static $DisableCache = FALSE;
 
@@ -25,7 +25,7 @@ class GnCache
     /**
      * Memcache Port
      *
-     * @var number
+     * @var int
      */
     public static $MemcachePort = 11211;
 
@@ -49,13 +49,16 @@ class GnCache
      */
     public static function Instance()
     {
-        static $inst = null;
-        if ($inst === null) {
+        static $inst = NULL;
+        if ($inst === NULL) {
             $inst = new GnCache();
         }
         return $inst;
     }
 
+    /**
+     * GnCache __construct
+     */
     private function __construct()
     {
         if (! static::$CacheHandler) {
@@ -64,11 +67,23 @@ class GnCache
         }
     }
 
+    /**
+     * @return bool
+     */
     private function isMemcachedConnected()
     {
         return $this->_memcached && $this->_memcached->getStats();
     }
 
+    /**
+     * Returns a cached item
+     *
+     * @param string $propName
+     * @param string $groupName
+     * @param int $expiriesIn
+     * @param void $initFunc
+     * @return object
+     */
     public function GetCachedItem(string $propName, string $groupName, int $expiriesIn, $initFunc)
     {
         if (static::$DisableCache && $initFunc) {
@@ -103,10 +118,9 @@ class GnCache
     /**
      * Clears the items from the cache.
      *
-     * @param $keyPattern string
-     *            The items to be cleared by a regexp-pattern of the key. If null, everything is removed.
+     * @param string $keyPattern The items to be cleared by a regexp-pattern of the key. If NULL, everything is removed.
      */
-    public function ClearCache(string $keyPattern = null)
+    public function ClearCache(string $keyPattern = NULL)
     {
         if (GnApi::$Debug) {
             GnLogger::Verbose("Clear cache '{$keyPattern}'");

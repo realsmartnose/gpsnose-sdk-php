@@ -14,11 +14,11 @@ class GnLoginApiEndUser extends GnLoginApiBase
     /**
      * Generate the login QR-code for the end-user.
      *
-     * @param boolean $mustJoin
+     * @param bool $mustJoin
      *            If the user must join the target community (it's the one belonging to your mashup's app-key)
-     * @param boolean $needsActivation
+     * @param bool $needsActivation
      *            If the user must be activated, i.e. his email is verified already.
-     * @param \GpsNose\SDK\Mashup\Model\GnMashupLoginAcl $acls
+     * @param int $acls
      *            The ACLs defining which data you will get about the logged-in user.
      * @return array(Byte) The QR-code image, which you must display to your user, to be scanned-in with his GpsNose mobile-app.
      */

@@ -4,6 +4,9 @@ namespace GpsNose\SDK\Framework\Logging;
 class GnLogConfig
 {
 
+    /**
+     * @var array
+     */
     private static $Listeners = [];
 
     /**

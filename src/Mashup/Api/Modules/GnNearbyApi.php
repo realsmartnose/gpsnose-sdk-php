@@ -27,11 +27,11 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnNose)
      */
-    public function GetNosesAround(string $community = null)
+    public function GetNosesAround(string $community = NULL)
     {
         $result = $this->ExecuteCall("GetNosesAround", (object) [
             "community" => $community
-        ], GnResponseType::ListGnNose, false, PHP_INT_MAX);
+        ], GnResponseType::ListGnNose, FALSE, PHP_INT_MAX);
 
         return $result;
     }
@@ -42,11 +42,11 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnImpression)
      */
-    public function GetImpressionsAround(string $community = null)
+    public function GetImpressionsAround(string $community = NULL)
     {
         $result = $this->ExecuteCall("GetImpressionsAround", (object) [
             "community" => $community
-        ], GnResponseType::ListGnImpression, false, PHP_INT_MAX);
+        ], GnResponseType::ListGnImpression, FALSE, PHP_INT_MAX);
 
         return $result;
     }
@@ -57,11 +57,11 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnPoI)
      */
-    public function GetPoIsAround(string $community = null)
+    public function GetPoIsAround(string $community = NULL)
     {
         $result = $this->ExecuteCall("GetPoIsAround", (object) [
             "community" => $community
-        ], GnResponseType::ListGnPoI, false, PHP_INT_MAX);
+        ], GnResponseType::ListGnPoI, FALSE, PHP_INT_MAX);
 
         return $result;
     }
@@ -72,11 +72,11 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnEvent)
      */
-    public function GetEventsAround(string $community = null)
+    public function GetEventsAround(string $community = NULL)
     {
         $result = $this->ExecuteCall("GetEventsAround", (object) [
             "community" => $community
-        ], GnResponseType::ListGnEvent, false, PHP_INT_MAX);
+        ], GnResponseType::ListGnEvent, FALSE, PHP_INT_MAX);
 
         return $result;
     }
@@ -87,11 +87,11 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnTrack)
      */
-    public function GetTracksAround(string $community = null)
+    public function GetTracksAround(string $community = NULL)
     {
         $result = $this->ExecuteCall("GetTracksAround", (object) [
             "community" => $community
-        ], GnResponseType::ListGnTrack, false, PHP_INT_MAX);
+        ], GnResponseType::ListGnTrack, FALSE, PHP_INT_MAX);
 
         return $result;
     }

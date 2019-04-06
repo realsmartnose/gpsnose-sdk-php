@@ -3,30 +3,29 @@ namespace GpsNose\SDK\Web\Login;
 
 class GnPrincipal
 {
+
     /**
      * GnPrincipal __construct
      * @param GnAuthenticationData $gnAuthData
      */
-    public function __construct(GnAuthenticationData $gnAuthData = null)
+    public function __construct(GnAuthenticationData $gnAuthData = NULL)
     {
-        if ($gnAuthData != null) {
+        if ($gnAuthData != NULL) {
             $this->LoginName = $gnAuthData->LoginName;
             $this->LoginId = $gnAuthData->LoginId;
             $this->ProfileTags = $gnAuthData->ProfileTags ?: [];
         }
     }
-    
-    
+
     /**
      * IsInRole
      * @param string $role
-     * @return boolean
+     * @return bool
      */
     public function IsInRole(string $role)
     {
         return in_array($role, $this->ProfileTags);
     }
-    
 
     /**
      * @var string
@@ -37,9 +36,10 @@ class GnPrincipal
      * @var string
      */
     public $LoginId;
-    
+
     /**
      * @var array
      */
     public $ProfileTags;
+
 }
