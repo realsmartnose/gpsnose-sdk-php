@@ -8,7 +8,6 @@ namespace GpsNose\SDK\Mashup\Framework;
  */
 class GnMapPoint
 {
-
     /**
      * GnMapPoint __construct
      *

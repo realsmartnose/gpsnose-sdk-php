@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnAroundBase
 {
-
     /**
      * GnCreatedEntity __construct
      *
@@ -24,49 +23,41 @@ class GnAroundBase
     }
 
     /**
-     *
      * @var string
      */
     public $Creator = "";
 
     /**
-     *
      * @var string
      */
     public $CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $Keywords = "";
 
     /**
-     *
      * @var float
      */
     public $Latitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Longitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Altitude = 0.0;
 
     /**
-     *
      * @var int
      */
     public $DistanceMetersExact = 0;
 
     /**
-     *
      * @var int
      */
     public $DistanceMetersObfuscated = 0;

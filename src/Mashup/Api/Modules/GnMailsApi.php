@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 
 class GnMailsApi extends GnApiModuleBase
 {
-
     /**
      * @var array
      */
@@ -39,7 +38,7 @@ class GnMailsApi extends GnApiModuleBase
      */
     public function GetMailsPage(int $lastKnownTicks = 0, int $pageSize = NULL)
     {
-        $result = $this->ExecuteCall("GetMailsPage", (object) [
+        $result = $this->ExecuteCall("GetMailsPage", (object)[
             "lastKnownTicks" => $lastKnownTicks,
             "pageSize" => $pageSize
         ], GnResponseType::ListGnMail);
@@ -63,7 +62,7 @@ class GnMailsApi extends GnApiModuleBase
      */
     public function SendMail(string $toLoginName, string $mailBody)
     {
-        $result = $this->ExecuteCall("SendMail", (object) [
+        $result = $this->ExecuteCall("SendMail", (object)[
             "toLoginName" => $toLoginName,
             "mailBody" => $mailBody
         ], GnResponseType::Json, FALSE, PHP_INT_MAX);

@@ -10,7 +10,6 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
  */
 class GnNearbyApi extends GnApiModuleBase
 {
-
     /**
      * GnNearbyApi __construct
      *
@@ -29,7 +28,7 @@ class GnNearbyApi extends GnApiModuleBase
      */
     public function GetNosesAround(string $community = NULL)
     {
-        $result = $this->ExecuteCall("GetNosesAround", (object) [
+        $result = $this->ExecuteCall("GetNosesAround", (object)[
             "community" => $community
         ], GnResponseType::ListGnNose, FALSE, PHP_INT_MAX);
 
@@ -44,7 +43,7 @@ class GnNearbyApi extends GnApiModuleBase
      */
     public function GetImpressionsAround(string $community = NULL)
     {
-        $result = $this->ExecuteCall("GetImpressionsAround", (object) [
+        $result = $this->ExecuteCall("GetImpressionsAround", (object)[
             "community" => $community
         ], GnResponseType::ListGnImpression, FALSE, PHP_INT_MAX);
 
@@ -59,7 +58,7 @@ class GnNearbyApi extends GnApiModuleBase
      */
     public function GetPoIsAround(string $community = NULL)
     {
-        $result = $this->ExecuteCall("GetPoIsAround", (object) [
+        $result = $this->ExecuteCall("GetPoIsAround", (object)[
             "community" => $community
         ], GnResponseType::ListGnPoI, FALSE, PHP_INT_MAX);
 
@@ -74,7 +73,7 @@ class GnNearbyApi extends GnApiModuleBase
      */
     public function GetEventsAround(string $community = NULL)
     {
-        $result = $this->ExecuteCall("GetEventsAround", (object) [
+        $result = $this->ExecuteCall("GetEventsAround", (object)[
             "community" => $community
         ], GnResponseType::ListGnEvent, FALSE, PHP_INT_MAX);
 
@@ -89,7 +88,7 @@ class GnNearbyApi extends GnApiModuleBase
      */
     public function GetTracksAround(string $community = NULL)
     {
-        $result = $this->ExecuteCall("GetTracksAround", (object) [
+        $result = $this->ExecuteCall("GetTracksAround", (object)[
             "community" => $community
         ], GnResponseType::ListGnTrack, FALSE, PHP_INT_MAX);
 

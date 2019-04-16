@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnTrack extends GnAroundBase
 {
-
     /**
      * GnTrack __construct
      *
@@ -25,37 +24,31 @@ class GnTrack extends GnAroundBase
     }
 
     /**
-     *
      * @var string
      */
     public $Name = "";
 
     /**
-     *
      * @var string
      */
     public $Description = "";
 
     /**
-     *
      * @var int
      */
     public $TrackType = GnTrackType::Unspecified;
 
     /**
-     *
      * @var string
      */
     public $EndedUtcTicks = "0";
 
     /**
-     *
      * @var int
      */
     public $RatingCount = 0;
 
     /**
-     *
      * @var int
      */
     public $RatingAvgPercent = 0;

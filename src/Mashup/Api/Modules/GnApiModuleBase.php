@@ -29,7 +29,6 @@ use GpsNose\SDK\Mashup\Framework\GnMapRectangle;
  */
 abstract class GnApiModuleBase
 {
-
     /**
      * @var int
      */
@@ -130,8 +129,7 @@ abstract class GnApiModuleBase
      */
     protected function GetCacheGroup(string $actionName)
     {
-        return "{$this->ControllerBasePath}/{$actionName}";
-        ;
+        return "{$this->ControllerBasePath}/{$actionName}";;
     }
 
     /**
@@ -163,7 +161,7 @@ abstract class GnApiModuleBase
             $url = GnUtility::GetQueryStringFromKeyVals($url, $urlParams);
 
             // app-key needed?
-            if (! GnUtil::IsNullOrEmpty($this->_loginApi->getAppKey())) {
+            if (!GnUtil::IsNullOrEmpty($this->_loginApi->getAppKey())) {
                 $request->appKey = $this->_loginApi->getAppKey();
             }
         }
@@ -368,7 +366,7 @@ abstract class GnApiModuleBase
             $this->_quota_CallCounter = 0;
         } else {
             // time-frame too short
-            $this->_quota_CallCounter ++;
+            $this->_quota_CallCounter++;
             if ($this->_quota_CallCounter >= self::QUOTA_MAX_CALLS) {
                 // counter exceeded: wait a bit..
                 sleep(self::QUOTA_WAIT_SECS_AFTER_EXCEEDED);

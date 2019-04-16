@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnComment
 {
-
     /**
      * GnComment __construct
      *
@@ -20,25 +19,21 @@ class GnComment
     }
 
     /**
-     *
      * @var string
      */
     public $CreationTicks = "";
 
     /**
-     *
      * @var string
      */
     public $Creator = "";
 
     /**
-     *
      * @var string
      */
     public $Mood = "";
 
     /**
-     *
      * @var string
      */
     public $Text = "";

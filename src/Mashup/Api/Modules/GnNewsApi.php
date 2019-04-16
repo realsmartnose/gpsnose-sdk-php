@@ -6,7 +6,6 @@ use GpsNose\SDK\Mashup\Framework\GnSettings;
 
 class GnNewsApi extends GnApiModuleBase
 {
-
     /**
      * GnNewsApi __construct
      *
@@ -27,7 +26,7 @@ class GnNewsApi extends GnApiModuleBase
      */
     public function GetNewsPage(string $subCommunity = NULL, int $pageSize = 50, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
     {
-        $result = $this->ExecuteCall("GetNewsPage", (object) [
+        $result = $this->ExecuteCall("GetNewsPage", (object)[
             "community" => $subCommunity,
             "pageSize" => $pageSize,
             "lastKnownTicks" => $lastKnownTicks

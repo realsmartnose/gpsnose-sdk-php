@@ -8,7 +8,6 @@ namespace GpsNose\SDK\Mashup\Framework;
  */
 class GnMapRectangle
 {
-
     /**
      * GnMapRectangle __construct
      *

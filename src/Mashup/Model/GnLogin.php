@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnLogin
 {
-
     /**
      * GnLogin __construct
      *
@@ -24,49 +23,41 @@ class GnLogin
     }
 
     /**
-     *
      * @var string
      */
     public $LoginName = "";
 
     /**
-     *
      * @var bool
      */
     public $IsActivated = FALSE;
 
     /**
-     *
      * @var string
      */
     public $FullName = "";
 
     /**
-     *
      * @var array
      */
     public $Communities = [];
 
     /**
-     *
      * @var string
      */
     public $Email = "";
 
     /**
-     *
      * @var bool
      */
     public $IsSafeMode = FALSE;
 
     /**
-     *
      * @var float
      */
     public $Latitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Longitude = 0.0;

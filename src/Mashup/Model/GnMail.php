@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnMail
 {
-
     /**
      * GnMail __construct
      *
@@ -19,19 +18,16 @@ class GnMail
     }
 
     /**
-     *
      * @var string
      */
     public $CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $FromLoginName = "";
 
     /**
-     *
      * @var string
      */
     public $Body = "";

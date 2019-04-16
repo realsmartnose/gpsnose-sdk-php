@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
 
 class GnMappingApi extends GnApiModuleBase
 {
-
     /**
      * @var int
      */
@@ -30,7 +29,7 @@ class GnMappingApi extends GnApiModuleBase
      */
     public function GetLatLonRectangleFromGIp(string $gip)
     {
-        $result = $this->ExecuteCall("GetLatLonRectangleFromGIp", (object) [
+        $result = $this->ExecuteCall("GetLatLonRectangleFromGIp", (object)[
             "gip" => $gip
         ], GnResponseType::GnMapRectangle);
 
@@ -48,9 +47,9 @@ class GnMappingApi extends GnApiModuleBase
      *            Zoom level [0..28]
      * @return string The geo-ip encoded location with a given zoom.
      */
-    public function GetGipFromLatLon(float $lat, float $lon, int $zoom = $this::MAX_ZOOM)
+    public function GetGipFromLatLon(float $lat, float $lon, int $zoom = MAX_ZOOM)
     {
-        $result = $this->ExecuteCall("GetGipFromLatLon", (object) [
+        $result = $this->ExecuteCall("GetGipFromLatLon", (object)[
             "lat" => $lat,
             "lon" => $lon,
             "zoom" => $zoom

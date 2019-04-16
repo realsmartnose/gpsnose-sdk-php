@@ -25,14 +25,12 @@ use GpsNose\SDK\Mashup\Model\GnMashupLoginAcl;
  */
 class GnLoginApiBase extends GnApiModuleBase
 {
-
     /**
      * @var string
      */
     public $ControllerBasePath = "Login";
 
     /**
-     *
      * @var \GpsNose\SDK\Mashup\Api\GnApi
      */
     protected $_api;
@@ -70,7 +68,7 @@ class GnLoginApiBase extends GnApiModuleBase
     /**
      * @return bool;
      */
-     public function getIsLoggedIn()
+    public function getIsLoggedIn()
     {
         return $this->_isLoggedIn;
     }
@@ -150,7 +148,7 @@ class GnLoginApiBase extends GnApiModuleBase
             $this->GetVerified();
         }
 
-        if (! $this->_isLoggedIn) {
+        if (!$this->_isLoggedIn) {
             throw new GnException("The loginId={$this->_loginId} is not yet logged-in");
         }
     }
@@ -180,12 +178,12 @@ class GnLoginApiBase extends GnApiModuleBase
             }
         }
 
-        $res = $this->ExecuteCall("GenerateQrCode", (object) [
+        $res = $this->ExecuteCall("GenerateQrCode", (object)[
             "loginId" => $this->_loginId,
             "community" => strtolower(trim($community)),
             "activation" => $needsActivation,
             "mustJoin" => $mustJoin,
-            "acls" => (string) ((int) $acls)
+            "acls" => (string)((int)$acls)
         ]);
 
         return $res;
@@ -202,11 +200,11 @@ class GnLoginApiBase extends GnApiModuleBase
         // mark as already-called
         $this->_isLoggedIn = FALSE;
 
-        $gnLoginResult = $this->ExecuteCall("GetVerified", (object) [
+        $gnLoginResult = $this->ExecuteCall("GetVerified", (object)[
             "loginId" => $this->_loginId
         ], GnResponseType::GnLogin, FALSE, PHP_INT_MAX);
 
-        if ($gnLoginResult != NULL && ! GnUtil::IsNullOrEmpty($gnLoginResult->LoginName)) {
+        if ($gnLoginResult != NULL && !GnUtil::IsNullOrEmpty($gnLoginResult->LoginName)) {
             $this->_isLoggedIn = TRUE;
         }
 
@@ -223,7 +221,7 @@ class GnLoginApiBase extends GnApiModuleBase
      */
     public function CheckIfIsStillLoggedId()
     {
-        $gnLoginResult = $this->ExecuteCall("IsStillLoggedIn", (object) [
+        $gnLoginResult = $this->ExecuteCall("IsStillLoggedIn", (object)[
             "loginId" => $this->_loginId
         ], GnResponseType::Boolean, FALSE, PHP_INT_MAX);
 

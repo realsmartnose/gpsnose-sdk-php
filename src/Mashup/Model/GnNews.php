@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\CreatedEntities\GnTrackType;
 
 class GnNews
 {
-
     /**
      * GnNews __construct
      *
@@ -82,7 +81,6 @@ class GnNews
     }
 
     /**
-     *
      * @var int
      */
     public $NewsType = 0;
@@ -93,13 +91,11 @@ class GnNews
     public $CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $Title = "";
 
     /**
-     *
      * @var string
      */
     public $Description = "";
@@ -112,13 +108,11 @@ class GnNews
     public $Creator = "";
 
     /**
-     *
      * @var string
      */
     public $Keywords = "";
 
     /**
-     *
      * @var bool
      */
     public $IsNowDeleted = FALSE;
@@ -133,7 +127,6 @@ class GnNews
     // about
 
     /**
-     *
      * @var string
      */
     public $About_NewAbout = "";
@@ -141,7 +134,6 @@ class GnNews
     // profile-image
 
     /**
-     *
      * @var bool
      */
     public $ProfileImage_WasDataUploaded = FALSE;
@@ -149,25 +141,21 @@ class GnNews
     // published-poi
 
     /**
-     *
      * @var float
      */
     public $PoiPublished_Latitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $PoiPublished_Longitude = 0.0;
 
     /**
-     *
      * @var string
      */
     public $PoiPublished_Name = "";
 
     /**
-     *
      * @var string
      */
     public $PoiPublished_CreationTicks = "0";
@@ -175,43 +163,36 @@ class GnNews
     // rating
 
     /**
-     *
      * @var string
      */
     public $Rating_Comment = "";
 
     /**
-     *
      * @var int
      */
     public $Rating_Percent = 0;
 
     /**
-     *
      * @var string
      */
     public $Rating_RatedItemId = "";
 
     /**
-     *
      * @var string
      */
     public $Rating_RatedItemName = "";
 
     /**
-     *
      * @var string
      */
     public $Rating_RatedItemType = "";
 
     /**
-     *
      * @var float
      */
     public $Rating_RatedItemLatitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Rating_RatedItemLongitude = 0.0;
@@ -219,25 +200,21 @@ class GnNews
     // blogs
 
     /**
-     *
      * @var string
      */
     public $Impression_CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $Impression_Mood = "";
 
     /**
-     *
      * @var string
      */
     public $Impression_Text = "";
 
     /**
-     *
      * @var bool
      */
     public $Impression_IsNavigable = FALSE;
@@ -245,43 +222,36 @@ class GnNews
     // comments
 
     /**
-     *
      * @var string
      */
     public $Comment_Mood = "";
 
     /**
-     *
      * @var string
      */
     public $Comment_Text = "";
 
     /**
-     *
      * @var string
      */
     public $Comment_CommentItemId = "";
 
     /**
-     *
      * @var string
      */
     public $Comment_CommentItemName = "";
 
     /**
-     *
      * @var string
      */
     public $Comment_CommentItemType = "";
 
     /**
-     *
      * @var float
      */
     public $Comment_CommentItemLatitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Comment_CommentItemLongitude = 0.0;
@@ -289,43 +259,36 @@ class GnNews
     // tours
 
     /**
-     *
      * @var string
      */
     public $Track_CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $Track_Name = "";
 
     /**
-     *
      * @var string
      */
     public $Track_Description = "";
 
     /**
-     *
      * @var float
      */
     public $Track_StartLatitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Track_StartLongitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Track_StartAltitude = 0.0;
 
     /**
-     *
      * @var int
      */
     public $Track_TrackType = GnTrackType::Unspecified;
@@ -333,37 +296,31 @@ class GnNews
     // events
 
     /**
-     *
      * @var string
      */
     public $Event_CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $Event_Name = "";
 
     /**
-     *
      * @var string
      */
     public $Event_Description = "";
 
     /**
-     *
      * @var string
      */
     public $Event_LocationAddress = "";
 
     /**
-     *
      * @var float
      */
     public $Event_Latitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $Event_Longitude = 0.0;
@@ -371,7 +328,6 @@ class GnNews
     // mashup
 
     /**
-     *
      * @var string
      */
     public $Mashup_CommunityTag = "";

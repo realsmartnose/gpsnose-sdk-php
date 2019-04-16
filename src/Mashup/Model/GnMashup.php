@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnMashup
 {
-
     /**
      * GnMashup __construct
      *
@@ -30,79 +29,66 @@ class GnMashup
     }
 
     /**
-     *
      * @var string
      */
     public $CommunityTag = "";
 
     /**
-     *
      * @var string
      */
     public $ValidationKey = "";
 
     /**
-     *
      * @var string
      */
     public $AppKey = "";
 
     /**
-     *
      * @var string
      */
     public $ValidationTicks = "0";
 
     /**
-     *
      * @var array
      */
     public $SubCommunities = [];
 
     /**
-     *
      * @var array
      */
     public $Hosts = [];
 
     /**
-     *
      * @var array
      */
     public $CallHistory = [];
 
     /**
-     *
      * @var array
      */
     public $ExceededQuotaHistory = [];
 
     /**
-     *
      * @var int
      */
     public $MaxCallsDaily = 0;
 
     /**
-     *
      * @var int
      */
     public $MaxCallsMonthly = 0;
 
     /**
-     *
      * @var int
      */
     public $MaxSubSites = 0;
 
     /**
-     *
      * @var int
      */
     public $MaxHosts = 0;
 
     /**
-     *
      * @var string
      */
     public $MashupTokenCallbackUrl = "";

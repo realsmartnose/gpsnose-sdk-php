@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnEvent extends GnAroundBase
 {
-
     /**
      * GnEvent __construct
      *
@@ -23,25 +22,21 @@ class GnEvent extends GnAroundBase
     }
 
     /**
-     *
      * @var string
      */
     public $Name = "";
 
     /**
-     *
      * @var array(int)
      */
     public $PossibleUtcTicks = [];
 
     /**
-     *
      * @var string
      */
     public $ConfirmedUtcTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $TimeZone = "";

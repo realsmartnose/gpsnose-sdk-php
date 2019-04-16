@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnCommunity
 {
-
     /**
      * GnCommunity __construct
      *
@@ -22,51 +21,54 @@ class GnCommunity
     }
 
     /**
-     *
      * @var string
      */
     public $CreationUtcTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $CreatorLoginName = "";
 
     /**
-     *
      * @var int
      */
     public $MembersCount = 0;
 
     /**
-     *
      * @var string
      */
     public $Description = "";
 
     /**
-     *
      * @var int
      */
     public $AclsInt = 0;
 
     /**
-     *
      * @var array
      */
     public $Admins = [];
 
+    /**
+     * @return bool
+     */
     public function CanListMembers()
     {
         return ($this->AclsInt & GnCommunityAcl::ListMembers) == GnCommunityAcl::ListMembers;
     }
 
+    /**
+     * @return bool
+     */
     public function CanMemberInviteMember()
     {
         return ($this->AclsInt & GnCommunityAcl::MembersInviteMembers) == GnCommunityAcl::MembersInviteMembers;
     }
 
+    /**
+     * @return bool
+     */
     public function CanMemberComment()
     {
         return ($this->AclsInt & GnCommunityAcl::CommentsFromMembers) == GnCommunityAcl::CommentsFromMembers;

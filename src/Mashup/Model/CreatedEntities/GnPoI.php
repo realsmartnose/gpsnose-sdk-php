@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnPoI extends GnAroundBase
 {
-
     /**
      * GnEvent __construct
      *
@@ -24,31 +23,26 @@ class GnPoI extends GnAroundBase
     }
 
     /**
-     *
      * @var string
      */
     public $Name = "";
 
     /**
-     *
      * @var string
      */
     public $Address = "";
 
     /**
-     *
      * @var int
      */
     public $RatingCount = 0;
 
     /**
-     *
      * @var int
      */
     public $RatingAvgPercent = 0;
 
     /**
-     *
      * @var string
      */
     public $ChangedTicks = "0";

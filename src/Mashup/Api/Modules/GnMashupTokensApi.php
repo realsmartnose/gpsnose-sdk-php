@@ -18,7 +18,6 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
  */
 class GnMashupTokensApi extends GnApiModuleBase
 {
-
     /**
      * GnAdminApi __construct
      *
@@ -48,7 +47,7 @@ class GnMashupTokensApi extends GnApiModuleBase
      */
     public function GenerateQrTokenForMashup(string $payload, int $validToTicks = 0, float $valuePerUnit = 0.0, string $label = NULL, int $options = GnMashupTokenOptions::NoOptions)
     {
-        $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object) [
+        $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
             "payload" => $payload,
             "validToTicks" => $validToTicks,
             "valuePerUnit" => $valuePerUnit,
@@ -72,7 +71,7 @@ class GnMashupTokensApi extends GnApiModuleBase
      */
     public function GetMashupTokensPage(string $tag, int $lastKnownScanTicks = 0, int $pageSize = 50)
     {
-        $tokens = $this->ExecuteCall("GetMashupTokensPage", (object) [
+        $tokens = $this->ExecuteCall("GetMashupTokensPage", (object)[
             "tag" => $tag,
             "lastKnownScanTicks" => $lastKnownScanTicks,
             "pageSize" => $pageSize

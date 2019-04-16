@@ -11,7 +11,6 @@ use GpsNose\SDK\Mashup\Model\GnMashupLoginAcl;
  */
 class GnLoginApiAdmin extends GnLoginApiBase
 {
-
     /**
      * Generate the login QR-code for the admin-user.
      *

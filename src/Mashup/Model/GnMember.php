@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnMember
 {
-
     /**
      * GnMember __construct
      *
@@ -17,13 +16,11 @@ class GnMember
     }
 
     /**
-     *
      * @var string
      */
     public $LoginName = "";
 
     /**
-     *
      * @var string
      */
     public $JoinTicks = "0";

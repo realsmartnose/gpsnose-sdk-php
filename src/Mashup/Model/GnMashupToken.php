@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnMashupToken
 {
-
     /**
      * GnMashupToken __construct
      *
@@ -29,108 +28,97 @@ class GnMashupToken
             $this->ValidUntilTicks = $json->{"ValidUntilTicks"};
             $this->CreationTicks = $json->{"CreationTicks"};
             $this->CreatedByLoginName = $json->{"CreatedByLoginName"};
+            $this->BatchCreationTicks = $json->{"BatchCreationTicks"};
         }
     }
 
     /**
-     *
      * @var string
      */
     public $Payload = "";
 
     /**
-     *
      * @var string
      */
     public $ScannedByLoginName = "";
 
     /**
-     *
      * @var string
      */
     public $ScannedTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $RecordedTicks = "0";
 
     /**
-     *
      * @var float
      */
     public $ScannedLatitude = 0.0;
 
     /**
-     *
      * @var float
      */
     public $ScannedLongitude = 0.0;
 
     /**
-     *
      * @var int
      */
     public $CallbackResponseHttpCode = 0;
 
     /**
-     *
      * @var string
      */
     public $CallbackResponseMessage = "";
 
     /**
-     *
      * @var bool
      */
     public $IsBatchCompleted = FALSE;
 
     /**
-     *
      * @var int
      */
     public $Amount = 0;
 
     /**
-     *
      * @var string
      */
     public $Comment = "";
 
     /**
-     *
      * @var bool
      */
     public $IsGpsSharingWanted = FALSE;
 
     /**
-     *
      * @var float
      */
     public $ValuePerUnit = 0.0;
 
     /**
-     *
      * @var string
      */
     public $Label = "";
 
     /**
-     *
      * @var string
      */
     public $ValidUntilTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $CreationTicks = "0";
 
     /**
-     *
      * @var string
      */
     public $CreatedByLoginName = "0";
+
+    /**
+     * @var string
+     */
+    public $BatchCreationTicks = "0";
 }

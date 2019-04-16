@@ -11,7 +11,6 @@ use GpsNose\SDK\Mashup\Model\GnCommunityAcl;
  */
 class GnAdminApi extends GnApiModuleBase
 {
-
     /**
      * @var string
      */
@@ -46,7 +45,7 @@ class GnAdminApi extends GnApiModuleBase
             throw new \InvalidArgumentException("tag required");
         }
 
-        $result = $this->SimpleResultCall("RegisterCommunityWeb", (object) [
+        $result = $this->SimpleResultCall("RegisterCommunityWeb", (object)[
             "tag" => $tag
         ], "ValidationKey", PHP_INT_MAX);
         return $result;
@@ -66,7 +65,7 @@ class GnAdminApi extends GnApiModuleBase
             throw new \InvalidArgumentException("tag required");
         }
 
-        $result = $this->SimpleResultCall("RegenerateAppKey", (object) [
+        $result = $this->SimpleResultCall("RegenerateAppKey", (object)[
             "tag" => $tag
         ], "AppKey", PHP_INT_MAX);
         return $result;
@@ -91,7 +90,7 @@ class GnAdminApi extends GnApiModuleBase
             throw new \InvalidArgumentException("tag required");
         }
 
-        $result = $this->SimpleResultCall("ValidateCommunityWeb", (object) [
+        $result = $this->SimpleResultCall("ValidateCommunityWeb", (object)[
             "tag" => $tag
         ], "AppKey", PHP_INT_MAX);
         return $result;
@@ -114,7 +113,7 @@ class GnAdminApi extends GnApiModuleBase
             throw new \InvalidArgumentException("tag required");
         }
 
-        $this->ExecuteCall("AddSubCommunity", (object) [
+        $this->ExecuteCall("AddSubCommunity", (object)[
             "tag" => $tag,
             "acls" => $acls
         ], GnResponseType::Json, FALSE, PHP_INT_MAX);
@@ -133,7 +132,7 @@ class GnAdminApi extends GnApiModuleBase
             throw new \InvalidArgumentException("tag required");
         }
 
-        $this->ExecuteCall("DelSubCommunity", (object) [
+        $this->ExecuteCall("DelSubCommunity", (object)[
             "tag" => $tag
         ], GnResponseType::Json, FALSE, PHP_INT_MAX);
     }
@@ -155,7 +154,7 @@ class GnAdminApi extends GnApiModuleBase
             throw new \InvalidArgumentException("tag required");
         }
 
-        $this->ExecuteCall("UpdateCommunityWeb", (object) [
+        $this->ExecuteCall("UpdateCommunityWeb", (object)[
             "tag" => $tag,
             "hosts" => $hosts,
             "mashupTokenCallbackUrl" => $mashupTokenCallbackUrl

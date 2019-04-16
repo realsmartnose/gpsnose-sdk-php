@@ -9,7 +9,6 @@ use GpsNose\SDK\Mashup\Framework\GnSettings;
  */
 class GnCommunityApi extends GnApiModuleBase
 {
-
     /**
      * GnCommunityApi __construct
      *
@@ -34,7 +33,7 @@ class GnCommunityApi extends GnApiModuleBase
      */
     public function GetMembersPage(int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS, string $community = NULL, int $pageSize = NULL)
     {
-        $result = $this->ExecuteCall("PageCommunityMembers", (object) [
+        $result = $this->ExecuteCall("PageCommunityMembers", (object)[
             "community" => $community,
             "lastKnownTicks" => $lastKnownTicks,
             "pageSize" => $pageSize
@@ -52,7 +51,7 @@ class GnCommunityApi extends GnApiModuleBase
      */
     public function GetCommunity(string $community = NULL)
     {
-        $result = $this->ExecuteCall("GetCommunity", (object) [
+        $result = $this->ExecuteCall("GetCommunity", (object)[
             "community" => $community
         ], GnResponseType::GnCommunity);
 
@@ -65,7 +64,7 @@ class GnCommunityApi extends GnApiModuleBase
      */
     public function GenerateQrCodeForCommunityJoin(string $community = NULL)
     {
-        $buf = $this->ExecuteCall("GenerateQrCodeForCommunityJoin", (object) [
+        $buf = $this->ExecuteCall("GenerateQrCodeForCommunityJoin", (object)[
             "community" => $community
         ], GnResponseType::Json, FALSE, 24 * 60 * 60);
 
@@ -82,7 +81,7 @@ class GnCommunityApi extends GnApiModuleBase
      */
     public function InviteMemberToCommunity(string $toLoginName, string $community = NULL)
     {
-        $this->ExecuteCall("InviteMemberToCommunity", (object) [
+        $this->ExecuteCall("InviteMemberToCommunity", (object)[
             "community" => $community,
             "toLoginName" => $toLoginName
         ], GnResponseType::Json, FALSE, PHP_INT_MAX);

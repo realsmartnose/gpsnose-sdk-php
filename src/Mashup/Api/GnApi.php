@@ -17,7 +17,6 @@ use GpsNose\SDK\Mashup\Framework\GnSettings;
  */
 class GnApi
 {
-
     /**
      * If set, debug will be on
      *

@@ -5,7 +5,6 @@ use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnImpression extends GnAroundBase
 {
-
     /**
      * GnImpression __construct
      *
@@ -23,25 +22,21 @@ class GnImpression extends GnAroundBase
     }
 
     /**
-     *
      * @var string
      */
     public $Text = "";
 
     /**
-     *
      * @var string
      */
     public $Mood = "";
 
     /**
-     *
      * @var int
      */
     public $RatingAvgPercent = 0;
 
     /**
-     *
      * @var int
      */
     public $RatingCount = 0;

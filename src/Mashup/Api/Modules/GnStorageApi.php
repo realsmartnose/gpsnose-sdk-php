@@ -12,7 +12,6 @@ use GpsNose\SDK\Mashup\Model\GnResponseType;
  */
 class GnStorageApi extends GnApiModuleBase
 {
-
     /**
      * @var array
      */
@@ -42,7 +41,7 @@ class GnStorageApi extends GnApiModuleBase
      */
     public function GetStorageItemsPage(string $storage, int $pageSize = 50, string $lastKnownKey = NULL, string $ownerUserName = NULL)
     {
-        $result = $this->ExecuteCall("GetStorageItemsPage", (object) [
+        $result = $this->ExecuteCall("GetStorageItemsPage", (object)[
             "storage" => $storage,
             "pageSize" => $pageSize,
             "lastKnownKey" => $lastKnownKey,
@@ -64,7 +63,7 @@ class GnStorageApi extends GnApiModuleBase
      */
     public function GetStorageItem(string $storage, string $key, string $ownerUserName = NULL)
     {
-        $result = $this->ExecuteCall("GetStorageItem", (object) [
+        $result = $this->ExecuteCall("GetStorageItem", (object)[
             "storage" => $storage,
             "key" => $key,
             "ownerUserName" => $ownerUserName
@@ -91,7 +90,7 @@ class GnStorageApi extends GnApiModuleBase
         // if the value is already a string, leave it as-is; otherwise, get the json
         $json = json_encode($value);
 
-        $this->ExecuteCall("PutStorageItem", (object) [
+        $this->ExecuteCall("PutStorageItem", (object)[
             "storage" => $storage,
             "key" => $key,
             "value" => $json,

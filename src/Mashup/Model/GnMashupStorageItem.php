@@ -3,7 +3,6 @@ namespace GpsNose\SDK\Mashup\Model;
 
 class GnMashupStorageItem
 {
-
     /**
      * GnLogin __construct
      *
@@ -19,19 +18,16 @@ class GnMashupStorageItem
     }
 
     /**
-     *
      * @var string
      */
     public $Key = "";
 
     /**
-     *
      * @var string
      */
     public $Value = "";
 
     /**
-     *
      * @var string
      */
     public $UpdatedTicks = "0";

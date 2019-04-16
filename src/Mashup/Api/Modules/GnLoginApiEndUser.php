@@ -10,7 +10,6 @@ use GpsNose\SDK\Mashup\Model\GnMashupLoginAcl;
  */
 class GnLoginApiEndUser extends GnLoginApiBase
 {
-
     /**
      * Generate the login QR-code for the end-user.
      *

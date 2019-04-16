@@ -69,14 +69,19 @@ class GnPaths
      */
     public static function GetUrlForDetails(int $itemType = GnUrlItemType::Community, string $itemKey = NULL)
     {
-        switch ($itemType)
-        {
-            case GnUrlItemType::Community: return static::$HomeUrl . "/community/index/?profileTag={$itemKey}";
-            case GnUrlItemType::Event: return static::$HomeUrl . "/event/detail/{$itemKey}";
-            case GnUrlItemType::Impression: return static::$HomeUrl . "/impression/detail/{$itemKey}";
-            case GnUrlItemType::Nose: return static::$HomeUrl . "/{$itemKey}";
-            case GnUrlItemType::PoI: return static::$HomeUrl . "/poi/detail/{$itemKey}";
-            case GnUrlItemType::Track: return static::$HomeUrl . "/tour/detail/{$itemKey}";
+        switch ($itemType) {
+            case GnUrlItemType::Community:
+                return static::$HomeUrl . "/community/index/?profileTag={$itemKey}";
+            case GnUrlItemType::Event:
+                return static::$HomeUrl . "/event/detail/{$itemKey}";
+            case GnUrlItemType::Impression:
+                return static::$HomeUrl . "/impression/detail/{$itemKey}";
+            case GnUrlItemType::Nose:
+                return static::$HomeUrl . "/{$itemKey}";
+            case GnUrlItemType::PoI:
+                return static::$HomeUrl . "/poi/detail/{$itemKey}";
+            case GnUrlItemType::Track:
+                return static::$HomeUrl . "/tour/detail/{$itemKey}";
         }
 
         throw new GnException("unexpected itemType={$itemType}");
@@ -95,16 +100,21 @@ class GnPaths
     {
         $sizeSuffix = $sizeType == GnThumbnailSize::Size_Full ? "" : "@{$sizeType}";
 
-        switch ($itemType)
-        {
-            case GnUrlItemType::Community: return static::$DataUrl . "/commimg/{$itemKey}{$sizeSuffix}";
-            case GnUrlItemType::Event: return static::$DataUrl . "/eventsimg/{$itemKey}{$sizeSuffix}";
-            case GnUrlItemType::Impression: return static::$DataUrl . "/impression/{$itemKey}{$sizeSuffix}";
-            case GnUrlItemType::Nose: return static::$DataUrl . "/profimg/{$itemKey}{$sizeSuffix}";
-            case GnUrlItemType::PoI: return static::$DataUrl . "/locimg/{$itemKey}{$sizeSuffix}";
+        switch ($itemType) {
+            case GnUrlItemType::Community:
+                return static::$DataUrl . "/commimg/{$itemKey}{$sizeSuffix}";
+            case GnUrlItemType::Event:
+                return static::$DataUrl . "/eventsimg/{$itemKey}{$sizeSuffix}";
+            case GnUrlItemType::Impression:
+                return static::$DataUrl . "/impression/{$itemKey}{$sizeSuffix}";
+            case GnUrlItemType::Nose:
+                return static::$DataUrl . "/profimg/{$itemKey}{$sizeSuffix}";
+            case GnUrlItemType::PoI:
+                return static::$DataUrl . "/locimg/{$itemKey}{$sizeSuffix}";
 
-            // track has no image
-            case GnUrlItemType::Track: break;
+                // track has no image
+            case GnUrlItemType::Track:
+                return NULL;
         }
 
         throw new GnException("unexpected itemType={$itemType}");

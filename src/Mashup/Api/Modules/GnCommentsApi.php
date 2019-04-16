@@ -10,7 +10,6 @@ use GpsNose\SDK\Mashup\Framework\GnSettings;
  */
 class GnCommentsApi extends GnApiModuleBase
 {
-
     /**
      * @var array
      */
@@ -39,7 +38,7 @@ class GnCommentsApi extends GnApiModuleBase
      */
     public function GetCommentsPage(int $itemType = GnCommentItemType::Community, string $itemKey = NULL, int $pageSize = NULL, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
     {
-        $result = $this->ExecuteCall("GetCommentsPage", (object) [
+        $result = $this->ExecuteCall("GetCommentsPage", (object)[
             "itemType" => $itemType,
             "itemKey" => $itemKey,
             "pageSize" => $pageSize,
@@ -59,7 +58,7 @@ class GnCommentsApi extends GnApiModuleBase
      */
     public function AddComment(string $text, int $itemType = GnCommentItemType::Community, string $itemKey = NULL)
     {
-        $result = $this->ExecuteCall("AddComment", (object) [
+        $result = $this->ExecuteCall("AddComment", (object)[
             "itemType" => $itemType,
             "itemKey" => $itemKey,
             "text" => $text
@@ -80,7 +79,7 @@ class GnCommentsApi extends GnApiModuleBase
      */
     public function UpdateComment(string $commentTicks, string $text, int $itemType = GnCommentItemType::Community, string $itemKey = NULL)
     {
-        $this->ExecuteCall("UpdateComment", (object) [
+        $this->ExecuteCall("UpdateComment", (object)[
             "commentTicks" => ($commentTicks + 0),
             "itemType" => $itemType,
             "itemKey" => $itemKey,
