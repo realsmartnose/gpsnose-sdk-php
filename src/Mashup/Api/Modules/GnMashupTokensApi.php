@@ -75,7 +75,7 @@ class GnMashupTokensApi extends GnApiModuleBase
             "tag" => $tag,
             "lastKnownScanTicks" => $lastKnownScanTicks,
             "pageSize" => $pageSize
-        ], GnResponseType::ListGnMashupToken);
+        ], GnResponseType::ListGnMashupToken, FALSE, PHP_INT_MAX);
 
         return $tokens;
     }

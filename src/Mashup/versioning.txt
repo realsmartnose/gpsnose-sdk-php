@@ -1,5 +1,5 @@
 1.0.10
-- UPD: Mashup-Tokens extensions
+- FIX: Dont use cache in GnMashupTokensApi.GetMashupTokensPage()
 
 1.0.9
 - UPD: Mashup-Tokens extensions
