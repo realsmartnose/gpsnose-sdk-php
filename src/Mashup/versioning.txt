@@ -1,3 +1,9 @@
+1.0.11
+- ADD: GnMashupTokenFormat
+- ADD: GnMashupTokensApi.GenerateQrTokenForMashupAsTextLink()
+- UPD: Package metadata
+- ADD: GnLocalSettings.LangId
+
 1.0.10
 - FIX: Dont use cache in GnMashupTokensApi.GetMashupTokensPage()
 

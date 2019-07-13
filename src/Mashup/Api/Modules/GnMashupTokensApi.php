@@ -2,6 +2,7 @@
 namespace GpsNose\SDK\Mashup\Api\Modules;
 
 use GpsNose\SDK\Mashup\Model\GnMashupTokenOptions;
+use GpsNose\SDK\Mashup\Model\GnMashupTokenFormat;
 use GpsNose\SDK\Mashup\Model\GnResponseType;
 
 /**
@@ -45,7 +46,12 @@ class GnMashupTokensApi extends GnApiModuleBase
      *            App-options for the UI when scanning this token.
      * @return mixed The QR-image
      */
-    public function GenerateQrTokenForMashup(string $payload, int $validToTicks = 0, float $valuePerUnit = 0.0, string $label = NULL, int $options = GnMashupTokenOptions::NoOptions)
+    public function GenerateQrTokenForMashup(
+        string $payload,
+        int $validToTicks = 0,
+        float $valuePerUnit = 0.0,
+        string $label = NULL,
+        int $options = GnMashupTokenOptions::NoOptions)
     {
         $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
             "payload" => $payload,
@@ -54,6 +60,25 @@ class GnMashupTokensApi extends GnApiModuleBase
             "label" => $label,
             "options" => $options
         ], GnResponseType::Json, FALSE, 24 * 60 * 60);
+
+        return $buf;
+    }
+
+    public function GenerateQrTokenForMashupAsTextLink(
+        string $payload,
+        int $validToTicks = 0,
+        float $valuePerUnit = 0.0,
+        string $label = NULL,
+        int $options = GnMashupTokenOptions::NoOptions)
+    {
+        $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
+            "payload" => $payload,
+            "validToTicks" => $validToTicks,
+            "valuePerUnit" => $valuePerUnit,
+            "label" => $label,
+            "options" => $options,
+            "format" => GnMashupTokenFormat::TextLink
+        ], GnResponseType::String, FALSE, 24 * 60 * 60);
 
         return $buf;
     }

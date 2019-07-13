@@ -25,6 +25,14 @@ class GnLocalSettings
 
 
     /**
+     * Set to the language-id your app/thread runs in, like 'en' for example
+     * @example en, de, sk..
+     * @var string
+     */
+    public static $LangId;
+
+
+    /**
      * Returns the item's placeholder image path for things like img's onerror usage.
      * When an item's image doesn't exist, you can set the img's error-handler to set this placeholder instead.
      * &lt;img src="..." onerror="this.src='GetEmptyImagePath(...)'" /&gt;
