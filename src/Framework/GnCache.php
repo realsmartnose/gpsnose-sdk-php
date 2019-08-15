@@ -61,7 +61,7 @@ class GnCache
      */
     private function __construct()
     {
-        if (! static::$CacheHandler) {
+        if (! static::$CacheHandler && ! static::$DisableCache) {
             $this->_memcached = new \Memcached();
             $this->_memcached->addServer(static::$MemcacheServer, static::$MemcachePort);
         }
@@ -106,7 +106,7 @@ class GnCache
             $val = $initFunc();
             if (static::$CacheHandler) {
                 static::$CacheHandler->set($propName, $groupName, $val, $expiriesIn);
-            } else {
+            } else if ($this->isMemcachedConnected()) {
                 $this->_memcached->set($propName, $val, time() + $expiriesIn);
             }
         } elseif (GnApi::$Debug) {
@@ -129,7 +129,7 @@ class GnCache
         if (static::$CacheHandler) {
             static::$CacheHandler->deleteKey($keyPattern);
             static::$CacheHandler->deleteGroup($keyPattern);
-        } else {
+        } else if ($this->isMemcachedConnected()) {
             $keys = $this->_memcached->getAllKeys();
             if (GnUtil::IsNullOrEmpty($keyPattern)) {
                 // remove all items
