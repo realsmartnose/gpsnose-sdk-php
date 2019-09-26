@@ -47,7 +47,7 @@ class GnApi
             $langId = GnSettings::$CurrentLangId;
         }
 
-        $loginApi = new Modules\GnLoginApiAdmin($this, NULL, $loginId, $langId);
+        $loginApi = new Modules\GnLoginApiAdmin($this, $loginId, $langId);
 
         return $loginApi;
     }

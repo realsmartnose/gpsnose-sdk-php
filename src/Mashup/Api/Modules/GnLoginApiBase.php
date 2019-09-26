@@ -164,7 +164,8 @@ class GnLoginApiBase extends GnApiModuleBase
      *            If only activated users are allowed.
      * @param int $acls
      *            What additional params should be returned from the platform.
-     * @return array(Byte)
+     * @return array
+     *            Default only the user login-name, but additional params are possible by the ACLs.
      */
     protected function GenerateQrCodeInternal($community = GnSettings::GPSNOSE_COMMUNITY, bool $mustJoin = FALSE, bool $needsActivation = FALSE, int $acls = GnMashupLoginAcl::None)
     {
