@@ -30,7 +30,7 @@ class GnNearbyApi extends GnApiModuleBase
     {
         $result = $this->ExecuteCall("GetNosesAround", (object)[
             "community" => $community
-        ], GnResponseType::ListGnNose, FALSE, PHP_INT_MAX);
+        ], GnResponseType::ListGnNose);
 
         return $result;
     }
@@ -45,7 +45,7 @@ class GnNearbyApi extends GnApiModuleBase
     {
         $result = $this->ExecuteCall("GetImpressionsAround", (object)[
             "community" => $community
-        ], GnResponseType::ListGnImpression, FALSE, PHP_INT_MAX);
+        ], GnResponseType::ListGnImpression);
 
         return $result;
     }
@@ -60,7 +60,7 @@ class GnNearbyApi extends GnApiModuleBase
     {
         $result = $this->ExecuteCall("GetPoIsAround", (object)[
             "community" => $community
-        ], GnResponseType::ListGnPoI, FALSE, PHP_INT_MAX);
+        ], GnResponseType::ListGnPoI);
 
         return $result;
     }
@@ -75,7 +75,7 @@ class GnNearbyApi extends GnApiModuleBase
     {
         $result = $this->ExecuteCall("GetEventsAround", (object)[
             "community" => $community
-        ], GnResponseType::ListGnEvent, FALSE, PHP_INT_MAX);
+        ], GnResponseType::ListGnEvent);
 
         return $result;
     }
@@ -90,7 +90,7 @@ class GnNearbyApi extends GnApiModuleBase
     {
         $result = $this->ExecuteCall("GetTracksAround", (object)[
             "community" => $community
-        ], GnResponseType::ListGnTrack, FALSE, PHP_INT_MAX);
+        ], GnResponseType::ListGnTrack);
 
         return $result;
     }

@@ -94,6 +94,18 @@ class GnLoginApiEndUser extends GnLoginApiBase
     }
 
     /**
+     * Get the GnComponentsApi for an end-user.
+     * Not available for admin-user.
+     *
+     * @throws GnException
+     * @return \GpsNose\SDK\Mashup\Api\Modules\GnComponentsApi
+     */
+    public function GetComponentsApi()
+    {
+        return new GnComponentsApi($this);
+    }
+
+    /**
      * Get the GnNearbyApi for an end-user.
      * Not available for admin-user.
      *

@@ -23,6 +23,7 @@ use GpsNose\SDK\Framework\GnCache;
 use GpsNose\SDK\Mashup\Model\GnMashupToken;
 use GpsNose\SDK\Mashup\Model\GnMail;
 use GpsNose\SDK\Mashup\Framework\GnMapRectangle;
+use GpsNose\SDK\Mashup\GnPaths;
 
 /**
  * Internal base-class for any concrete API module.
@@ -390,5 +391,60 @@ abstract class GnApiModuleBase
         $response = $this->ExecuteCall($actionName, $request, GnResponseType::Json, FALSE, $cacheTtl);
         $result = $response->{$resultPropName};
         return $result;
+    }
+
+    /**
+     * Call a server-url with params
+     *
+     * @param string $actionName
+     * @param array $urlParams
+     * @param int $cacheTtl
+     * @return array(\GpsNose\SDK\Mashup\Model\GnNose)
+     */
+    protected function ExecuteGet(string $actionName, array $urlParams = [], int $cacheTtl = 0)
+    {
+        $url = GnPaths::HomeUrlSslNeeded() . "/{$this->ControllerBasePath}/{$actionName}";
+        $cacheKey = "none";
+        if (count($urlParams) > 0) {
+            $url = GnUtility::GetQueryStringFromKeyVals($url, $urlParams);
+            $cacheKey = json_encode($urlParams);
+        }
+
+        // setup cache
+        $this->cacheGroup = $this->GetCacheGroup($actionName);
+        $this->cacheKey = $cacheKey;
+        if ($cacheTtl == 0) {
+            $cacheTtl = self::DEFAULT_CACHE_TTL_MINUTES * 60;
+        } elseif ($cacheTtl == PHP_INT_MAX) {
+            $cacheTtl = 0;
+        }
+
+        if (GnApi::$Debug) {
+            GnLogger::Verbose("Request:" . $url . " | " . $actionName);
+        }
+
+        // use cache|GET to read the result
+        $resData = GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url) {
+            $ch = curl_init($url);
+            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                'Content-Type:image/png'
+            ));
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            $result = curl_exec($ch);
+            curl_close($ch);
+
+            return $result;
+        });
+
+        if (strlen($resData) == 0) {
+            $this->ResetCachedResut();
+            return NULL;
+        }
+
+        if (GnApi::$Debug) {
+            GnLogger::Verbose("Response:" . $actionName . " | " . (ctype_print($resData) || substr($resData, 0, 1) === '<' ? $resData : "binary"));
+        }
+
+        return $resData;
     }
 }

@@ -1,3 +1,6 @@
+1.0.14
+- ADD: Add ComponentsApi for cached QR-Codes
+
 1.0.13
 - ADD: GnLoginApiEndUser.IsSecurityTokenValid() for security-token validation
 
