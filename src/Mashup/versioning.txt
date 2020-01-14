@@ -1,3 +1,6 @@
+1.0.15
+- FIX: Fix bool conversion
+
 1.0.14
 - ADD: Add ComponentsApi for cached QR-Codes
 

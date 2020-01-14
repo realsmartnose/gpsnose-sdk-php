@@ -19,10 +19,10 @@ class GnMashupToken
             $this->ScannedLongitude = $json->{"ScannedLongitude"} + 0;
             $this->CallbackResponseHttpCode = $json->{"CallbackResponseHttpCode"} + 0;
             $this->CallbackResponseMessage = $json->{"CallbackResponseMessage"};
-            $this->IsBatchCompleted = boolval($json->{"IsBatchCompleted"});
+            $this->IsBatchCompleted = strtolower($json->{"IsBatchCompleted"}) == "true";
             $this->Amount = $json->{"Amount"} + 0;
             $this->Comment = $json->{"Comment"};
-            $this->IsGpsSharingWanted = boolval($json->{"IsGpsSharingWanted"});
+            $this->IsGpsSharingWanted = strtolower($json->{"IsGpsSharingWanted"}) == "true";
             $this->ValuePerUnit = $json->{"ValuePerUnit"} + 0;
             $this->Label = $json->{"Label"};
             $this->ValidUntilTicks = $json->{"ValidUntilTicks"};
