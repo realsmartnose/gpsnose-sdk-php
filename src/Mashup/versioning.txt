@@ -1,5 +1,5 @@
 1.0.17
-- FIX: GUID to lowercase
+- CHA: Change blob-url for images
 
 1.0.16
 - FIX: GUID to lowercase
