@@ -31,7 +31,7 @@ class GnPaths
      * DataUrl
      * @var string
      */
-    public static $DataUrl = "http://data.gpsnose.com";
+    public static $DataUrl = "https://gpsnose.blob.core.windows.net";
 
 
     /**
