@@ -1,3 +1,6 @@
+1.0.18
+- CHA: Change the $HomeUrl to https
+
 1.0.17
 - CHA: Change blob-url for images
 

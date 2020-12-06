@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup;
 
 use GpsNose\SDK\Mashup\Framework\GnException;
@@ -9,7 +10,7 @@ class GnPaths
      * HomeUrl
      * @var string
      */
-    public static $HomeUrl = "http://www.gpsnose.com";
+    public static $HomeUrl = "https://www.gpsnose.com";
 
 
     /**
