@@ -168,6 +168,9 @@ abstract class GnApiModuleBase
         }
 
         $reqJson = json_encode($request);
+        if (in_array($actionName, ['GenerateQrCode', 'GenerateQrTokenForMashup'])) {
+            $reqGet = http_build_query($request);
+        }
 
         // setup cache
         $this->cacheGroup = $this->GetCacheGroup($actionName);
@@ -183,9 +186,14 @@ abstract class GnApiModuleBase
         }
 
         // use cache|POST to read the result
-        $resData = GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url, $reqJson) {
+        $resData = (string)GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url, $reqJson, $reqGet) {
+            if ($reqGet) {
+                $url .= '&' . $reqGet;
+            }
             $ch = curl_init($url);
-            curl_setopt($ch, CURLOPT_POSTFIELDS, $reqJson);
+            if (! $reqGet) {
+                curl_setopt($ch, CURLOPT_POSTFIELDS, $reqJson);
+            }
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type:application/json'
             ));
@@ -424,7 +432,7 @@ abstract class GnApiModuleBase
         }
 
         // use cache|GET to read the result
-        $resData = GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url) {
+        $resData = (string)GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url) {
             $ch = curl_init($url);
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type:image/png'

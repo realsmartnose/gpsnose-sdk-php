@@ -31,7 +31,7 @@ class GnApi
      */
     public static function ApiRoot()
     {
-        return GnPaths::HomeUrlSslNeeded() . "/Mashup";
+        return GnPaths::HomeUrlSslNeeded();
     }
 
     /**
