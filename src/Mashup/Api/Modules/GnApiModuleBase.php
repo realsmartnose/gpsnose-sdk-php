@@ -174,7 +174,12 @@ abstract class GnApiModuleBase
 
         // setup cache
         $this->cacheGroup = $this->GetCacheGroup($actionName);
-        $this->cacheKey = "{$url}#{$reqJson}";
+        if ($reqGet) {
+            $url .= '&' . $reqGet;
+            $this->cacheKey = "{$url}";
+        } else {
+            $this->cacheKey = "{$url}#{$reqJson}";
+        }
         if ($cacheTtl == 0) {
             $cacheTtl = self::DEFAULT_CACHE_TTL_MINUTES * 60;
         } elseif ($cacheTtl == PHP_INT_MAX) {
@@ -187,9 +192,6 @@ abstract class GnApiModuleBase
 
         // use cache|POST to read the result
         $resData = (string)GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url, $reqJson, $reqGet) {
-            if ($reqGet) {
-                $url .= '&' . $reqGet;
-            }
             $ch = curl_init($url);
             if (! $reqGet) {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $reqJson);
