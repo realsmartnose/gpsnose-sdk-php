@@ -168,7 +168,7 @@ abstract class GnApiModuleBase
         }
 
         $reqJson = json_encode($request);
-        if (in_array($actionName, ['GenerateQrCode', 'GenerateQrTokenForMashup'])) {
+        if (!in_array($this->ControllerBasePath, ['Login', 'MashupApi']) && in_array($actionName, ['GenerateQrCode', 'GenerateQrTokenForMashup'])) {
             $reqGet = http_build_query($request);
         }
 

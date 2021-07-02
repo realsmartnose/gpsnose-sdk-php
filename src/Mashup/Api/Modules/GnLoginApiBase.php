@@ -184,7 +184,7 @@ class GnLoginApiBase extends GnApiModuleBase
             "community" => strtolower(trim($community)),
             "activation" => $needsActivation,
             "mustJoin" => $mustJoin,
-            "acls" => (string)((int)$acls)
+            "acls" => (int)$acls
         ]);
 
         return $res;
