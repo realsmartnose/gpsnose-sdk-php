@@ -1,6 +1,7 @@
 <?php
 namespace GpsNose\SDK\Mashup\Api\Modules;
 
+use GpsNose\SDK\Mashup\Model\CreatedEntities\GnTrackType;
 use GpsNose\SDK\Mashup\Model\GnResponseType;
 
 /**
@@ -84,12 +85,14 @@ class GnNearbyApi extends GnApiModuleBase
      * Return the Tracks around.
      *
      * @param string $community
+     * @param int $trackType
      * @return array(\GpsNose\SDK\Mashup\Model\GnTrack)
      */
-    public function GetTracksAround(string $community = NULL)
+    public function GetTracksAround(string $community = NULL, int $trackType = GnTrackType::Unspecified)
     {
         $result = $this->ExecuteCall("GetTracksAround", (object)[
-            "community" => $community
+            "community" => $community,
+            "trackType" => $trackType
         ], GnResponseType::ListGnTrack);
 
         return $result;
