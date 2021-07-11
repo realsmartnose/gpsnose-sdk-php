@@ -9,7 +9,7 @@ class GnCryptor
     /**
      * @var string
      */
-    public static $pass = NULL;
+    public static $pass = null;
 
     /**
      * @var string

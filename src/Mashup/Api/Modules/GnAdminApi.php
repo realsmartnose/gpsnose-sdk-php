@@ -39,7 +39,7 @@ class GnAdminApi extends GnApiModuleBase
      * @throws \InvalidArgumentException
      * @return string Validation key, which must be validated for the new web-community.
      */
-    public function RegisterCommunityWeb(string $tag = NULL)
+    public function RegisterCommunityWeb(string $tag = null)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
@@ -59,7 +59,7 @@ class GnAdminApi extends GnApiModuleBase
      * @throws \InvalidArgumentException
      * @return string The new app-key
      */
-    public function RegenerateAppKey(string $tag = NULL)
+    public function RegenerateAppKey(string $tag = null)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
@@ -84,7 +84,7 @@ class GnAdminApi extends GnApiModuleBase
      * @throws \InvalidArgumentException
      * @return string The app-key for the validated web-community.
      */
-    public function ValidateCommunityWeb(string $tag = NULL)
+    public function ValidateCommunityWeb(string $tag = null)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
@@ -116,7 +116,7 @@ class GnAdminApi extends GnApiModuleBase
         $this->ExecuteCall("AddSubCommunity", (object)[
             "tag" => $tag,
             "acls" => $acls
-        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Json, false, PHP_INT_MAX);
     }
 
     /**
@@ -126,7 +126,7 @@ class GnAdminApi extends GnApiModuleBase
      *            The sub-community tag, like *www.geohamster.com@level-10
      * @throws \InvalidArgumentException
      */
-    public function DelSubCommunity(string $tag = NULL)
+    public function DelSubCommunity(string $tag = null)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
@@ -134,7 +134,7 @@ class GnAdminApi extends GnApiModuleBase
 
         $this->ExecuteCall("DelSubCommunity", (object)[
             "tag" => $tag
-        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Json, false, PHP_INT_MAX);
     }
 
     /**
@@ -143,12 +143,12 @@ class GnAdminApi extends GnApiModuleBase
      * @param string $tag
      *            The main web-community, like %www.mydomain.com
      * @param array $hosts
-     *            Optional: allowed calling hosts. If NULL: will be removed.
+     *            Optional: allowed calling hosts. If null: will be removed.
      * @param string $mashupTokenCallbackUrl
-     *            Optional: which mashup callback-url to call sync immediately while scanning the token. If NULL: will be removed.
+     *            Optional: which mashup callback-url to call sync immediately while scanning the token. If null: will be removed.
      * @throws \InvalidArgumentException
      */
-    public function UpdateCommunityWeb(string $tag = NULL, array $hosts = [], string $mashupTokenCallbackUrl = NULL)
+    public function UpdateCommunityWeb(string $tag = null, array $hosts = [], string $mashupTokenCallbackUrl = null)
     {
         if (GnUtil::IsNullOrEmpty($tag)) {
             throw new \InvalidArgumentException("tag required");
@@ -158,7 +158,7 @@ class GnAdminApi extends GnApiModuleBase
             "tag" => $tag,
             "hosts" => $hosts,
             "mashupTokenCallbackUrl" => $mashupTokenCallbackUrl
-        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Json, false, PHP_INT_MAX);
     }
 
     /**
@@ -169,7 +169,7 @@ class GnAdminApi extends GnApiModuleBase
      */
     public function GetOwnMashups()
     {
-        $result = $this->ExecuteCall("GetOwnMashups", NULL, GnResponseType::ListGnMashup, FALSE, 1);
+        $result = $this->ExecuteCall("GetOwnMashups", null, GnResponseType::ListGnMashup, false, 1);
         return $result;
     }
 }

@@ -53,7 +53,7 @@ abstract class GnApiModuleBase
     /**
      * @var \DateTime
      */
-    private $_quota_LastCall = NULL;
+    private $_quota_LastCall = null;
 
     /**
      * @var string
@@ -88,9 +88,9 @@ abstract class GnApiModuleBase
      *
      * @param GnLoginApiBase $loginApi
      */
-    protected function __construct(GnLoginApiBase $loginApi = NULL)
+    protected function __construct(GnLoginApiBase $loginApi = null)
     {
-        if ($loginApi != NULL) {
+        if ($loginApi != null) {
             $this->_loginApi = $loginApi;
         } else {
             // notice: only GnLoginApi may call this constructor!
@@ -144,7 +144,7 @@ abstract class GnApiModuleBase
      * @throws \GpsNose\SDK\Mashup\Framework\GnException
      * @return mixed
      */
-    protected function ExecuteCall(string $actionName, $request, int $responseType = GnResponseType::Json, bool $ignoreNotFound = FALSE, int $cacheTtl = 0)
+    protected function ExecuteCall(string $actionName, $request, int $responseType = GnResponseType::Json, bool $ignoreNotFound = false, int $cacheTtl = 0, bool $isGet = false)
     {
         $this->HandleCallQuota();
 
@@ -168,7 +168,7 @@ abstract class GnApiModuleBase
         }
 
         $reqJson = json_encode($request);
-        if (!in_array($this->ControllerBasePath, ['Login', 'MashupApi']) && in_array($actionName, ['GenerateQrCode', 'GenerateQrTokenForMashup'])) {
+        if ($isGet) {
             $reqGet = http_build_query($request);
         }
 
@@ -199,7 +199,7 @@ abstract class GnApiModuleBase
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type:application/json'
             ));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $result = curl_exec($ch);
             curl_close($ch);
 
@@ -208,12 +208,12 @@ abstract class GnApiModuleBase
 
         if (strlen($resData) == 0) {
             $this->ResetCachedResut();
-            return NULL;
+            return null;
         }
 
         $json = json_decode($resData);
 
-        if ($json === NULL) {
+        if ($json === null) {
             if (GnApi::$Debug) {
                 GnLogger::Verbose("Response:" . $actionName . " | " . (ctype_print($resData) || substr($resData, 0, 1) === '<' ? $resData : "binary") . " | " . $responseType);
             }
@@ -241,7 +241,7 @@ abstract class GnApiModuleBase
                     return $json;
 
                 case GnResponseType::Boolean:
-                    return strtoupper($resData) == 'TRUE';
+                    return strtolower($resData) == 'true';
 
                 case GnResponseType::Number:
                     return $resData + 0;
@@ -364,7 +364,7 @@ abstract class GnApiModuleBase
      */
     private function HandleCallQuota()
     {
-        if ($this->_quota_LastCall == NULL) {
+        if ($this->_quota_LastCall == null) {
             $this->_quota_LastCall = new \DateTime();
             $this->_quota_LastCall->setTimestamp(0);
         }
@@ -398,7 +398,7 @@ abstract class GnApiModuleBase
      */
     protected function SimpleResultCall(string $actionName, $request, string $resultPropName, int $cacheTtl = 0)
     {
-        $response = $this->ExecuteCall($actionName, $request, GnResponseType::Json, FALSE, $cacheTtl);
+        $response = $this->ExecuteCall($actionName, $request, GnResponseType::Json, false, $cacheTtl);
         $result = $response->{$resultPropName};
         return $result;
     }
@@ -439,7 +439,7 @@ abstract class GnApiModuleBase
             curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                 'Content-Type:image/png'
             ));
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $result = curl_exec($ch);
             curl_close($ch);
 
@@ -448,7 +448,7 @@ abstract class GnApiModuleBase
 
         if (strlen($resData) == 0) {
             $this->ResetCachedResut();
-            return NULL;
+            return null;
         }
 
         if (GnApi::$Debug) {

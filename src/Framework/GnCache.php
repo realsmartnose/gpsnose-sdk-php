@@ -13,7 +13,7 @@ class GnCache
      *
      * @var bool
      */
-    public static $DisableCache = FALSE;
+    public static $DisableCache = false;
 
     /**
      * Memcache Server
@@ -49,8 +49,8 @@ class GnCache
      */
     public static function Instance()
     {
-        static $inst = NULL;
-        if ($inst === NULL) {
+        static $inst = null;
+        if ($inst === null) {
             $inst = new GnCache();
         }
         return $inst;
@@ -118,9 +118,9 @@ class GnCache
     /**
      * Clears the items from the cache.
      *
-     * @param string $keyPattern The items to be cleared by a regexp-pattern of the key. If NULL, everything is removed.
+     * @param string $keyPattern The items to be cleared by a regexp-pattern of the key. If null, everything is removed.
      */
-    public function ClearCache(string $keyPattern = NULL)
+    public function ClearCache(string $keyPattern = null)
     {
         if (GnApi::$Debug) {
             GnLogger::Verbose("Clear cache '{$keyPattern}'");

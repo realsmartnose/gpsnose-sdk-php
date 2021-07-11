@@ -20,7 +20,7 @@ class GnLoginApiAdmin extends GnLoginApiBase
      */
     public function GenerateQrCode(int $acls = GnMashupLoginAcl::None)
     {
-        $qrCode = parent::GenerateQrCodeInternal(GnSettings::GPSNOSE_COMMUNITY, TRUE, TRUE, $acls);
+        $qrCode = parent::GenerateQrCodeInternal(GnSettings::GPSNOSE_COMMUNITY, true, true, $acls);
 
         return $qrCode;
     }
@@ -48,6 +48,6 @@ class GnLoginApiAdmin extends GnLoginApiBase
      */
     public function __construct(GnApi $api, $loginId, $langId)
     {
-        parent::__construct($api, NULL, $loginId, $langId);
+        parent::__construct($api, null, $loginId, $langId);
     }
 }

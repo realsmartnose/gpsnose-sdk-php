@@ -36,7 +36,7 @@ class GnCommentsApi extends GnApiModuleBase
      * @param int $lastKnownTicks
      * @return array(\GpsNose\SDK\Mashup\Model\GnComment)
      */
-    public function GetCommentsPage(int $itemType = GnCommentItemType::Community, string $itemKey = NULL, int $pageSize = NULL, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
+    public function GetCommentsPage(int $itemType = GnCommentItemType::Community, string $itemKey = null, int $pageSize = null, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
     {
         $result = $this->ExecuteCall("GetCommentsPage", (object)[
             "itemType" => $itemType,
@@ -56,13 +56,13 @@ class GnCommentsApi extends GnApiModuleBase
      * @param string $itemKey
      * @return string
      */
-    public function AddComment(string $text, int $itemType = GnCommentItemType::Community, string $itemKey = NULL)
+    public function AddComment(string $text, int $itemType = GnCommentItemType::Community, string $itemKey = null)
     {
         $result = $this->ExecuteCall("AddComment", (object)[
             "itemType" => $itemType,
             "itemKey" => $itemKey,
             "text" => $text
-        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Json, false, PHP_INT_MAX);
 
         $this->ClearCacheForActionNames($this::CLEAR_CACHE_PATTERNS);
 
@@ -77,14 +77,14 @@ class GnCommentsApi extends GnApiModuleBase
      * @param int $itemType
      * @param string $itemKey
      */
-    public function UpdateComment(string $commentTicks, string $text, int $itemType = GnCommentItemType::Community, string $itemKey = NULL)
+    public function UpdateComment(string $commentTicks, string $text, int $itemType = GnCommentItemType::Community, string $itemKey = null)
     {
         $this->ExecuteCall("UpdateComment", (object)[
             "commentTicks" => ($commentTicks + 0),
             "itemType" => $itemType,
             "itemKey" => $itemKey,
             "text" => $text
-        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Json, false, PHP_INT_MAX);
 
         $this->ClearCacheForActionNames($this::CLEAR_CACHE_PATTERNS);
     }

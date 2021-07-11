@@ -19,10 +19,10 @@ interface IGnCacheHandler
     /**
      * @param string $key
      */
-    function deleteKey(string $key = NULL);
+    function deleteKey(string $key = null);
 
     /**
      * @param string $keyPattern
      */
-    function deleteGroup(string $keyPattern = NULL);
+    function deleteGroup(string $keyPattern = null);
 }

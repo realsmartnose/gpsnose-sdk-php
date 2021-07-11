@@ -22,7 +22,7 @@ class GnApi
      *
      * @var bool
      */
-    public static $Debug = FALSE;
+    public static $Debug = false;
 
     /**
      * ApiRoot
@@ -41,7 +41,7 @@ class GnApi
      * @param string $langId The 2-letter lowercase ISO-code for language-specific API results
      * @return \GpsNose\SDK\Mashup\Api\Modules\GnLoginApiAdmin
      */
-    public function GetLoginApiForAdmin(string $loginId = NULL, string $langId = NULL)
+    public function GetLoginApiForAdmin(string $loginId = null, string $langId = null)
     {
         if (GnUtil::IsNullOrEmpty($langId)) {
             $langId = GnSettings::$CurrentLangId;
@@ -60,7 +60,7 @@ class GnApi
      * @param string $langId  The 2-letter lowercase ISO-code for language-specific API results
      * @return \GpsNose\SDK\Mashup\Api\Modules\GnLoginApiEndUser
      */
-    public function GetLoginApiForEndUser(string $appKey = NULL, string $loginId = NULL, string $langId = NULL)
+    public function GetLoginApiForEndUser(string $appKey = null, string $loginId = null, string $langId = null)
     {
         if (GnUtil::IsNullOrEmpty($langId)) {
             $langId = GnSettings::$CurrentLangId;

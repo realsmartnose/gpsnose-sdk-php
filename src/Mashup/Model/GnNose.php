@@ -8,7 +8,7 @@ class GnNose extends GnAroundBase
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
         parent::__construct($json);
     }

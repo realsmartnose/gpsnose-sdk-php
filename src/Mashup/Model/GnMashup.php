@@ -8,9 +8,9 @@ class GnMashup
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
-        if ($json != NULL) {
+        if ($json != null) {
             $this->CommunityTag = $json->{"CommunityTag"};
             $this->ValidationKey = $json->{"ValidationKey"};
             $this->AppKey = $json->{"AppKey"};

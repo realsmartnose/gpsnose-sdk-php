@@ -36,7 +36,7 @@ class GnAuthentication
     {
         if (static::IsAuthenticatedRequest()) {
             unset($_COOKIE['GpsNoseAuthentication']);
-            setcookie('GpsNoseAuthentication', NULL, time() - 3600, '/');
+            setcookie('GpsNoseAuthentication', null, time() - 3600, '/');
         }
     }
 
@@ -57,6 +57,6 @@ class GnAuthentication
             $gnPrincipal->ProfileTags = $json->{"ProfileTags"};
             return $gnPrincipal;
         }
-        return NULL;
+        return null;
     }
 }

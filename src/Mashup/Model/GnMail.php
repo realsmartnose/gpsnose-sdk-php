@@ -8,9 +8,9 @@ class GnMail
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
-        if ($json != NULL) {
+        if ($json != null) {
             $this->CreationTicks = $json->{"CreationTicks"};
             $this->FromLoginName = $json->{"FromLoginName"};
             $this->Body = $json->{"Body"};

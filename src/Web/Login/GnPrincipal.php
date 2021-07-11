@@ -8,9 +8,9 @@ class GnPrincipal
      * GnPrincipal __construct
      * @param GnAuthenticationData $gnAuthData
      */
-    public function __construct(GnAuthenticationData $gnAuthData = NULL)
+    public function __construct(GnAuthenticationData $gnAuthData = null)
     {
-        if ($gnAuthData != NULL) {
+        if ($gnAuthData != null) {
             $this->LoginName = $gnAuthData->LoginName;
             $this->LoginId = $gnAuthData->LoginId;
             $this->ProfileTags = $gnAuthData->ProfileTags ?: [];

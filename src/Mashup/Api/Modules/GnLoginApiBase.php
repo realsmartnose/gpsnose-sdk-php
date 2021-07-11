@@ -118,9 +118,9 @@ class GnLoginApiBase extends GnApiModuleBase
      * @param string $loginId
      * @param string $langId
      */
-    public function __construct(GnApi $api, string $appKey = NULL, string $loginId = NULL, string $langId = NULL)
+    public function __construct(GnApi $api, string $appKey = null, string $loginId = null, string $langId = null)
     {
-        $this->_isLoggedIn = NULL;
+        $this->_isLoggedIn = null;
 
         $this->_api = $api;
         $this->_appKey = $appKey;
@@ -144,7 +144,7 @@ class GnLoginApiBase extends GnApiModuleBase
      */
     public function AssureLoggedInAlready()
     {
-        if ($this->_isLoggedIn == NULL) {
+        if ($this->_isLoggedIn == null) {
             $this->GetVerified();
         }
 
@@ -167,7 +167,7 @@ class GnLoginApiBase extends GnApiModuleBase
      * @return array
      *            Default only the user login-name, but additional params are possible by the ACLs.
      */
-    protected function GenerateQrCodeInternal($community = GnSettings::GPSNOSE_COMMUNITY, bool $mustJoin = FALSE, bool $needsActivation = FALSE, int $acls = GnMashupLoginAcl::None)
+    protected function GenerateQrCodeInternal($community = GnSettings::GPSNOSE_COMMUNITY, bool $mustJoin = false, bool $needsActivation = false, int $acls = GnMashupLoginAcl::None)
     {
         if ($this->IsMashupAdmin()) {
             if ($community !== GnSettings::GPSNOSE_COMMUNITY) {
@@ -185,7 +185,7 @@ class GnLoginApiBase extends GnApiModuleBase
             "activation" => $needsActivation,
             "mustJoin" => $mustJoin,
             "acls" => (int)$acls
-        ]);
+        ], GnResponseType::Json, false, 0, true);
 
         return $res;
     }
@@ -199,14 +199,14 @@ class GnLoginApiBase extends GnApiModuleBase
     public function GetVerified()
     {
         // mark as already-called
-        $this->_isLoggedIn = FALSE;
+        $this->_isLoggedIn = false;
 
         $gnLoginResult = $this->ExecuteCall("GetVerified", (object)[
             "loginId" => $this->_loginId
-        ], GnResponseType::GnLogin, FALSE, PHP_INT_MAX);
+        ], GnResponseType::GnLogin, false, PHP_INT_MAX);
 
-        if ($gnLoginResult != NULL && !GnUtil::IsNullOrEmpty($gnLoginResult->LoginName)) {
-            $this->_isLoggedIn = TRUE;
+        if ($gnLoginResult != null && !GnUtil::IsNullOrEmpty($gnLoginResult->LoginName)) {
+            $this->_isLoggedIn = true;
         }
 
         return $gnLoginResult;
@@ -224,7 +224,7 @@ class GnLoginApiBase extends GnApiModuleBase
     {
         $gnLoginResult = $this->ExecuteCall("IsStillLoggedIn", (object)[
             "loginId" => $this->_loginId
-        ], GnResponseType::Boolean, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Boolean, false, PHP_INT_MAX);
 
         return $gnLoginResult;
     }

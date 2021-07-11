@@ -27,7 +27,7 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnNose)
      */
-    public function GetNosesAround(string $community = NULL)
+    public function GetNosesAround(string $community = null)
     {
         $result = $this->ExecuteCall("GetNosesAround", (object)[
             "community" => $community
@@ -42,7 +42,7 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnImpression)
      */
-    public function GetImpressionsAround(string $community = NULL)
+    public function GetImpressionsAround(string $community = null)
     {
         $result = $this->ExecuteCall("GetImpressionsAround", (object)[
             "community" => $community
@@ -57,7 +57,7 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnPoI)
      */
-    public function GetPoIsAround(string $community = NULL)
+    public function GetPoIsAround(string $community = null)
     {
         $result = $this->ExecuteCall("GetPoIsAround", (object)[
             "community" => $community
@@ -72,7 +72,7 @@ class GnNearbyApi extends GnApiModuleBase
      * @param string $community
      * @return array(\GpsNose\SDK\Mashup\Model\GnEvent)
      */
-    public function GetEventsAround(string $community = NULL)
+    public function GetEventsAround(string $community = null)
     {
         $result = $this->ExecuteCall("GetEventsAround", (object)[
             "community" => $community
@@ -88,7 +88,7 @@ class GnNearbyApi extends GnApiModuleBase
      * @param int $trackType
      * @return array(\GpsNose\SDK\Mashup\Model\GnTrack)
      */
-    public function GetTracksAround(string $community = NULL, int $trackType = GnTrackType::Unspecified)
+    public function GetTracksAround(string $community = null, int $trackType = GnTrackType::Unspecified)
     {
         $result = $this->ExecuteCall("GetTracksAround", (object)[
             "community" => $community,

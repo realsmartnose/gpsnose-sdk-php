@@ -10,10 +10,10 @@ class GnEvent extends GnAroundBase
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
         parent::__construct($json);
-        if ($json != NULL) {
+        if ($json != null) {
             $this->Name = $json->{"Name"};
             $this->PossibleUtcTicks = $json->{"PossibleUtcTicks"} ?: [];
             $this->ConfirmedUtcTicks = $json->{"ConfirmedUtcTicks"};

@@ -28,7 +28,7 @@ class GnComponentsApi extends GnApiModuleBase
      *  
      * @param string $tag
      */
-    public function GetQrCode(string $tag = NULL)
+    public function GetQrCode(string $tag = null)
     {
         return $this->ExecuteGet("QrCode", [
             "tag" => $tag

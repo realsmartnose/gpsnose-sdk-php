@@ -24,7 +24,7 @@ class GnNewsApi extends GnApiModuleBase
      * @param int $lastKnownTicks
      * @return array(\GpsNose\SDK\Mashup\Model\GnNews)
      */
-    public function GetNewsPage(string $subCommunity = NULL, int $pageSize = 50, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
+    public function GetNewsPage(string $subCommunity = null, int $pageSize = 50, int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS)
     {
         $result = $this->ExecuteCall("GetNewsPage", (object)[
             "community" => $subCommunity,

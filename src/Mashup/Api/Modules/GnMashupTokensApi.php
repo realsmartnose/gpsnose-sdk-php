@@ -50,7 +50,7 @@ class GnMashupTokensApi extends GnApiModuleBase
         string $payload,
         int $validToTicks = 0,
         float $valuePerUnit = 0.0,
-        string $label = NULL,
+        string $label = null,
         int $options = GnMashupTokenOptions::NoOptions)
     {
         $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
@@ -59,7 +59,7 @@ class GnMashupTokensApi extends GnApiModuleBase
             "valuePerUnit" => $valuePerUnit,
             "label" => $label,
             "options" => $options
-        ], GnResponseType::Json, FALSE, 24 * 60 * 60);
+        ], GnResponseType::Json, false, 24 * 60 * 60);
 
         return $buf;
     }
@@ -68,7 +68,7 @@ class GnMashupTokensApi extends GnApiModuleBase
         string $payload,
         int $validToTicks = 0,
         float $valuePerUnit = 0.0,
-        string $label = NULL,
+        string $label = null,
         int $options = GnMashupTokenOptions::NoOptions)
     {
         $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
@@ -78,7 +78,7 @@ class GnMashupTokensApi extends GnApiModuleBase
             "label" => $label,
             "options" => $options,
             "format" => GnMashupTokenFormat::TextLink
-        ], GnResponseType::String, FALSE, 24 * 60 * 60);
+        ], GnResponseType::String, false, 24 * 60 * 60);
 
         return $buf;
     }
@@ -100,7 +100,7 @@ class GnMashupTokensApi extends GnApiModuleBase
             "tag" => $tag,
             "lastKnownScanTicks" => $lastKnownScanTicks,
             "pageSize" => $pageSize
-        ], GnResponseType::ListGnMashupToken, FALSE, PHP_INT_MAX);
+        ], GnResponseType::ListGnMashupToken, false, PHP_INT_MAX);
 
         return $tokens;
     }

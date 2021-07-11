@@ -40,7 +40,7 @@ class GnPaths
      * @param string $userName
      * @return string
      */
-    public static function ProfileLink(string $userName = NULL)
+    public static function ProfileLink(string $userName = null)
     {
         $s = static::$HomeUrl . "/{$userName}";
         return $s;
@@ -53,7 +53,7 @@ class GnPaths
      * @param int $size
      * @return string
      */
-    public static function ProfileImage(string $userName = NULL, int $size = 0)
+    public static function ProfileImage(string $userName = null, int $size = 0)
     {
         $sizeSuffix = $size == 0 ? "" : "@{$size}";
         $s = static::$DataUrl . "/profimg/{$userName}{$sizeSuffix}";
@@ -68,7 +68,7 @@ class GnPaths
      * @throws \GpsNose\SDK\Mashup\Framework\GnException
      * @return string
      */
-    public static function GetUrlForDetails(int $itemType = GnUrlItemType::Community, string $itemKey = NULL)
+    public static function GetUrlForDetails(int $itemType = GnUrlItemType::Community, string $itemKey = null)
     {
         switch ($itemType) {
             case GnUrlItemType::Community:
@@ -97,7 +97,7 @@ class GnPaths
      * @throws \GpsNose\SDK\Mashup\Framework\GnException
      * @return string
      */
-    public static function GetUrlForImage(int $itemType = GnUrlItemType::Community, string $itemKey = NULL, int $sizeType = GnThumbnailSize::Size_Full)
+    public static function GetUrlForImage(int $itemType = GnUrlItemType::Community, string $itemKey = null, int $sizeType = GnThumbnailSize::Size_Full)
     {
         $sizeSuffix = $sizeType == GnThumbnailSize::Size_Full ? "" : "@{$sizeType}";
 
@@ -115,7 +115,7 @@ class GnPaths
 
                 // track has no image
             case GnUrlItemType::Track:
-                return NULL;
+                return null;
         }
 
         throw new GnException("unexpected itemType={$itemType}");

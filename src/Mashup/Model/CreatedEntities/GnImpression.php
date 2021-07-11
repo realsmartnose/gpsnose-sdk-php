@@ -10,10 +10,10 @@ class GnImpression extends GnAroundBase
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
         parent::__construct($json);
-        if ($json != NULL) {
+        if ($json != null) {
             $this->Text = $json->{"Text"};
             $this->Mood = $json->{"Mood"};
             $this->RatingAvgPercent = $json->{"RatingAvgPercent"} + 0;

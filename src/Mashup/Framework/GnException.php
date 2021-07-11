@@ -9,9 +9,9 @@ class GnException extends \Exception
      * GnException __construct
      * @param string $msg
      */
-    public function __construct(string $msg = NULL)
+    public function __construct(string $msg = null)
     {
-        parent::__construct($msg, NULL, NULL);
+        parent::__construct($msg, null, null);
         GnLogger::LogException($this);
     }
 }

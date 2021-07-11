@@ -40,7 +40,7 @@ class GnLocalSettings
      * @param string $itemKey
      * @return string
      */
-    public static function GetEmptyImagePath(int $itemType = GnUrlItemType::Impression, string $itemKey = NULL)
+    public static function GetEmptyImagePath(int $itemType = GnUrlItemType::Impression, string $itemKey = null)
     {
         $fileName = "EmptyImage.png";
 
@@ -58,6 +58,6 @@ class GnLocalSettings
                 break;
         }
 
-        return static::GnImagesPath . "/{$fileName}";
+        return static::$GnImagesPath . "/{$fileName}";
     }
 }

@@ -10,9 +10,9 @@ class GnNews
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
-        if ($json != NULL) {
+        if ($json != null) {
             $this->NewsType = $json->{"NewsType"};
             $this->CreationTicks = $json->{"CreationTicks"};
             $this->Title = $json->{"Title"};
@@ -115,7 +115,7 @@ class GnNews
     /**
      * @var bool
      */
-    public $IsNowDeleted = FALSE;
+    public $IsNowDeleted = false;
 
     /**
      * not set in user-scoped-news
@@ -136,7 +136,7 @@ class GnNews
     /**
      * @var bool
      */
-    public $ProfileImage_WasDataUploaded = FALSE;
+    public $ProfileImage_WasDataUploaded = false;
 
     // published-poi
 
@@ -217,7 +217,7 @@ class GnNews
     /**
      * @var bool
      */
-    public $Impression_IsNavigable = FALSE;
+    public $Impression_IsNavigable = false;
 
     // comments
 

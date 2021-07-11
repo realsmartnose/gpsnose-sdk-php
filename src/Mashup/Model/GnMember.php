@@ -9,7 +9,7 @@ class GnMember
      * @param string $loginName
      * @param string $joinTicks
      */
-    public function __construct(string $loginName = NULL, string $joinTicks = NULL)
+    public function __construct(string $loginName = null, string $joinTicks = null)
     {
         $this->LoginName = $loginName;
         $this->JoinTicks = $joinTicks;

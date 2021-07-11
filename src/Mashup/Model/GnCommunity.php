@@ -8,9 +8,9 @@ class GnCommunity
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
-        if ($json != NULL) {
+        if ($json != null) {
             $this->CreationUtcTicks = $json->{"CreationUtcTicks"};
             $this->CreatorLoginName = $json->{"CreatorLoginName"};
             $this->MembersCount = $json->{"MembersCount"} + 0;

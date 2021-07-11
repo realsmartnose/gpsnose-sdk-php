@@ -8,9 +8,9 @@ class GnMashupToken
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
-        if ($json != NULL) {
+        if ($json != null) {
             $this->Payload = $json->{"Payload"};
             $this->ScannedByLoginName = $json->{"ScannedByLoginName"};
             $this->ScannedTicks = $json->{"ScannedTicks"};
@@ -75,7 +75,7 @@ class GnMashupToken
     /**
      * @var bool
      */
-    public $IsBatchCompleted = FALSE;
+    public $IsBatchCompleted = false;
 
     /**
      * @var int
@@ -90,7 +90,7 @@ class GnMashupToken
     /**
      * @var bool
      */
-    public $IsGpsSharingWanted = FALSE;
+    public $IsGpsSharingWanted = false;
 
     /**
      * @var float

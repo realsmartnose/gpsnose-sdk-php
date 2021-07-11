@@ -13,9 +13,9 @@ class GnMapRectangle
      *
      * @param object $json
      */
-    public function __construct($json = NULL)
+    public function __construct($json = null)
     {
-        if ($json != NULL) {
+        if ($json != null) {
             $this->Zoom = $json->{"Zoom"} + 0;
             $this->Center = new GnMapPoint($json->{"Center"});
             $this->Vertex0 = new GnMapPoint($json->{"Vertex0"});
@@ -33,25 +33,25 @@ class GnMapRectangle
     /**
      * @var GnMapPoint
      */
-    public $Center = NULL;
+    public $Center = null;
 
     /**
      * @var GnMapPoint
      */
-    public $Vertex0 = NULL;
+    public $Vertex0 = null;
 
     /**
      * @var GnMapPoint
      */
-    public $Vertex1 = NULL;
+    public $Vertex1 = null;
 
     /**
      * @var GnMapPoint
      */
-    public $Vertex2 = NULL;
+    public $Vertex2 = null;
 
     /**
      * @var GnMapPoint
      */
-    public $Vertex3 = NULL;
+    public $Vertex3 = null;
 }

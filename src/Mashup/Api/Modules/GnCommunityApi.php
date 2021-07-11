@@ -31,7 +31,7 @@ class GnCommunityApi extends GnApiModuleBase
      *            Page size. Default 12, or [1..20].
      * @return array(\GpsNose\SDK\Mashup\Model\GnMember) Member names with their creation-ticks.
      */
-    public function GetMembersPage(int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS, string $community = NULL, int $pageSize = NULL)
+    public function GetMembersPage(int $lastKnownTicks = GnSettings::FAR_FUTURE_TICKS, string $community = null, int $pageSize = null)
     {
         $result = $this->ExecuteCall("PageCommunityMembers", (object)[
             "community" => $community,
@@ -49,7 +49,7 @@ class GnCommunityApi extends GnApiModuleBase
      *            The sub/community; default is the main web-community, or can be a sub-community like %www.geohamster.com@honolulu
      * @return \GpsNose\SDK\Mashup\Model\GnCommunity The community details.
      */
-    public function GetCommunity(string $community = NULL)
+    public function GetCommunity(string $community = null)
     {
         $result = $this->ExecuteCall("GetCommunity", (object)[
             "community" => $community
@@ -62,11 +62,11 @@ class GnCommunityApi extends GnApiModuleBase
      * @param string $community
      * @return mixed
      */
-    public function GenerateQrCodeForCommunityJoin(string $community = NULL)
+    public function GenerateQrCodeForCommunityJoin(string $community = null)
     {
         $buf = $this->ExecuteCall("GenerateQrCodeForCommunityJoin", (object)[
             "community" => $community
-        ], GnResponseType::Json, FALSE, 24 * 60 * 60);
+        ], GnResponseType::Json, false, 24 * 60 * 60);
 
         return $buf;
     }
@@ -79,11 +79,11 @@ class GnCommunityApi extends GnApiModuleBase
      * @param string $community
      *            Which community invite into; default is the main mashup community.
      */
-    public function InviteMemberToCommunity(string $toLoginName, string $community = NULL)
+    public function InviteMemberToCommunity(string $toLoginName, string $community = null)
     {
         $this->ExecuteCall("InviteMemberToCommunity", (object)[
             "community" => $community,
             "toLoginName" => $toLoginName
-        ], GnResponseType::Json, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Json, false, PHP_INT_MAX);
     }
 }

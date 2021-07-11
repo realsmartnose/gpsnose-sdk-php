@@ -10,5 +10,5 @@ interface GnILogListener
      * @param int $level
      * @param string $message
      */
-    function WriteToLog(int $level = GnLogLevel::Off, string $message = NULL);
+    function WriteToLog(int $level = GnLogLevel::Off, string $message = null);
 }

@@ -23,9 +23,9 @@ class GnLoginApiEndUser extends GnLoginApiBase
      * @return array
      *            The QR-code image, which you must display to your user, to be scanned-in with his GpsNose mobile-app.
      */
-    public function GenerateQrCode(bool $mustJoin = FALSE, bool $needsActivation = FALSE, int $acls = GnMashupLoginAcl::None)
+    public function GenerateQrCode(bool $mustJoin = false, bool $needsActivation = false, int $acls = GnMashupLoginAcl::None)
     {
-        $qrCode = parent::GenerateQrCodeInternal(NULL, $mustJoin, $needsActivation, $acls);
+        $qrCode = parent::GenerateQrCodeInternal(null, $mustJoin, $needsActivation, $acls);
 
         return $qrCode;
     }
@@ -41,7 +41,7 @@ class GnLoginApiEndUser extends GnLoginApiBase
     {
         $result = $this->ExecuteCall("IsSecurityTokenValid", (object)[
             "token" => $token
-        ], GnResponseType::Boolean, FALSE, PHP_INT_MAX);
+        ], GnResponseType::Boolean, false, PHP_INT_MAX);
 
         return $result;
     }

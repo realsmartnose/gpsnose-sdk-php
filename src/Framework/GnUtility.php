@@ -13,24 +13,24 @@ class GnUtility
      */
     public static function GetQueryStringFromKeyVals(string $url, array $keyVals)
     {
-        if ($url == NULL) {
+        if ($url == null) {
             throw new \InvalidArgumentException('url');
         }
 
-        if ($keyVals == NULL) {
+        if ($keyVals == null) {
             throw new \InvalidArgumentException('keyVals');
         }
 
         $anchorIndex = strpos($url, '#');
         $resultUri = $url;
         $anchorText = "";
-        if ($anchorIndex !== FALSE) {
+        if ($anchorIndex !== false) {
             $anchorText = substr($url, $anchorIndex);
             $resultUri = substr($url, 0, $anchorIndex);
         }
 
         $queryIndex = strpos($resultUri, '?');
-        $hasQuery = $queryIndex !== FALSE;
+        $hasQuery = $queryIndex !== false;
 
         $sb = '';
         $sb .= $resultUri;
@@ -39,7 +39,7 @@ class GnUtility
             $sb .= urlencode($keyKey);
             $sb .= '=';
             $sb .= urlencode($keyVal);
-            $hasQuery = TRUE;
+            $hasQuery = true;
         }
 
         $sb .= $anchorText;
