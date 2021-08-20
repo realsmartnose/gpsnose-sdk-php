@@ -187,7 +187,7 @@ abstract class GnApiModuleBase
         }
 
         if (GnApi::$Debug) {
-            GnLogger::Verbose("Request:" . $url . " | " . $actionName . " | " . $reqJson . " | " . $responseType);
+            GnLogger::Verbose("Request " . ($reqGet ? 'GET' : 'POST') . ":" . $url . " | " . $actionName . " | " . ($reqGet ? '' : $reqJson . " | ") . $responseType);
         }
 
         // use cache|POST to read the result
@@ -195,10 +195,10 @@ abstract class GnApiModuleBase
             $ch = curl_init($url);
             if (! $reqGet) {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $reqJson);
+                curl_setopt($ch, CURLOPT_HTTPHEADER, array(
+                    'Content-Type:application/json'
+                ));
             }
-            curl_setopt($ch, CURLOPT_HTTPHEADER, array(
-                'Content-Type:application/json'
-            ));
             curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
             $result = curl_exec($ch);
             curl_close($ch);
