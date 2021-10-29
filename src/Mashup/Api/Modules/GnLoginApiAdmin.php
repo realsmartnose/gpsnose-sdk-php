@@ -16,7 +16,7 @@ class GnLoginApiAdmin extends GnLoginApiBase
      * This QrCode is useful for admin use-cases, when the target community is not known before (e.g. registering new mashups).
      * 
      * @param int $acls The ACLs defining which data you will get about the logged-in user.
-     * @return array The QR-code image, which you must display to your user, to be scanned-in with his GpsNose mobile-app.
+     * @return string The QR-code image, which you must display to your user, to be scanned-in with his GpsNose mobile-app.
      */
     public function GenerateQrCode(int $acls = GnMashupLoginAcl::None)
     {

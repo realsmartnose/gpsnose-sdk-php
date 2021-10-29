@@ -20,7 +20,7 @@ class GnLoginApiEndUser extends GnLoginApiBase
      *            If the user must be activated, i.e. his email is verified already.
      * @param int $acls
      *            The ACLs defining which data you will get about the logged-in user.
-     * @return array
+     * @return string
      *            The QR-code image, which you must display to your user, to be scanned-in with his GpsNose mobile-app.
      */
     public function GenerateQrCode(bool $mustJoin = false, bool $needsActivation = false, int $acls = GnMashupLoginAcl::None)
