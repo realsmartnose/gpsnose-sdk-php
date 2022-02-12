@@ -185,7 +185,7 @@ class GnLoginApiBase extends GnApiModuleBase
             "activation" => $needsActivation,
             "mustJoin" => $mustJoin,
             "acls" => (int)$acls
-        ], GnResponseType::Json, false, 0, true);
+        ]);
 
         return $res;
     }
