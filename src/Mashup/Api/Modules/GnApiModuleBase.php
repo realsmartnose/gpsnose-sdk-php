@@ -167,6 +167,7 @@ abstract class GnApiModuleBase
             }
         }
 
+        $reqGet = null;
         $reqJson = json_encode($request);
         if ($isGet) {
             $reqGet = http_build_query($request);
