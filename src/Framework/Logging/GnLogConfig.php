@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Framework\Logging;
 
 class GnLogConfig
@@ -26,7 +27,7 @@ class GnLogConfig
      */
     public static function AddListener(GnILogListener $listener)
     {
-        if (! array_key_exists(get_class($listener), self::$Listeners)) {
+        if (!array_key_exists(get_class($listener), self::$Listeners)) {
             self::$Listeners[get_class($listener)] = $listener;
         }
     }

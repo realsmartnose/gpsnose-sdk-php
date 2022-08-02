@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Framework;
 
 class GnUtil
@@ -53,9 +54,9 @@ class GnUtil
         $date = new \DateTime();
         if (is_string($ticks)) {
             $ticksLong = intval($ticks);
-            $date->setTimestamp((($ticksLong - 621355968000000000) / 10000000));
+            $date->setTimestamp(intval(($ticksLong - 621355968000000000) / 10000000));
         } else if (is_integer($ticks)) {
-            $date->setTimestamp((($ticks - 621355968000000000) / 10000000));
+            $date->setTimestamp(intval(($ticks - 621355968000000000) / 10000000));
         } else {
             $date->setTimestamp(0);
         }
@@ -77,5 +78,26 @@ class GnUtil
             $randomString .= $characters[rand(0, $charactersLength - 1)];
         }
         return $randomString;
+    }
+
+    /**
+     * Check if the property exists on the object and returns the value (without warning)
+     *
+     * @param object $object
+     * @param string $property
+     * @return mixed
+     */
+    public static function GetSaveProperty($object, $property): mixed
+    {
+        if (is_array($object)) {
+            if (key_exists($property, $object)) {
+                return $object[$property];
+            }
+            return null;
+        }
+        if (property_exists($object, $property)) {
+            return $object->{$property};
+        }
+        return null;
     }
 }

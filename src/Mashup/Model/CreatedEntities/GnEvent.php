@@ -1,6 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model\CreatedEntities;
 
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnEvent extends GnAroundBase
@@ -14,10 +16,10 @@ class GnEvent extends GnAroundBase
     {
         parent::__construct($json);
         if ($json != null) {
-            $this->Name = $json->{"Name"};
-            $this->PossibleUtcTicks = $json->{"PossibleUtcTicks"} ?: [];
-            $this->ConfirmedUtcTicks = $json->{"ConfirmedUtcTicks"};
-            $this->TimeZone = $json->{"TimeZone"};
+            $this->Name = GnUtil::GetSaveProperty($json, "Name");
+            $this->PossibleUtcTicks = GnUtil::GetSaveProperty($json, "PossibleUtcTicks") ?: [];
+            $this->ConfirmedUtcTicks = GnUtil::GetSaveProperty($json, "ConfirmedUtcTicks");
+            $this->TimeZone = GnUtil::GetSaveProperty($json, "TimeZone");
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Web\Login;
 
 class GnAuthenticationData
@@ -18,5 +19,4 @@ class GnAuthenticationData
      * @var array
      */
     public $ProfileTags;
-    
 }

@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnAroundBase
 {
@@ -11,14 +14,14 @@ class GnAroundBase
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->Creator = $json->{"Creator"};
-            $this->CreationTicks = $json->{"CreationTicks"};
-            $this->Keywords = $json->{"Keywords"};
-            $this->Latitude = floatval($json->{"Latitude"} + 0);
-            $this->Longitude = floatval($json->{"Longitude"} + 0);
-            $this->Altitude = floatval($json->{"Altitude"} + 0);
-            $this->DistanceMetersExact = $json->{"DistanceMetersExact"} + 0;
-            $this->DistanceMetersObfuscated = $json->{"DistanceMetersObfuscated"} + 0;
+            $this->Creator = GnUtil::GetSaveProperty($json, "Creator");
+            $this->CreationTicks = GnUtil::GetSaveProperty($json, "CreationTicks");
+            $this->Keywords = GnUtil::GetSaveProperty($json, "Keywords");
+            $this->Latitude = floatval(GnUtil::GetSaveProperty($json, "Latitude") + 0);
+            $this->Longitude = floatval(GnUtil::GetSaveProperty($json, "Longitude") + 0);
+            $this->Altitude = floatval(GnUtil::GetSaveProperty($json, "Altitude") + 0);
+            $this->DistanceMetersExact = GnUtil::GetSaveProperty($json, "DistanceMetersExact") + 0;
+            $this->DistanceMetersObfuscated = GnUtil::GetSaveProperty($json, "DistanceMetersObfuscated") + 0;
         }
     }
 

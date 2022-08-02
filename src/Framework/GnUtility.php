@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\Framework;
 
 class GnUtility

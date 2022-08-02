@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnMail
 {
@@ -11,9 +14,9 @@ class GnMail
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->CreationTicks = $json->{"CreationTicks"};
-            $this->FromLoginName = $json->{"FromLoginName"};
-            $this->Body = $json->{"Body"};
+            $this->CreationTicks = GnUtil::GetSaveProperty($json, "CreationTicks");
+            $this->FromLoginName = GnUtil::GetSaveProperty($json, "FromLoginName");
+            $this->Body = GnUtil::GetSaveProperty($json, "Body");
         }
     }
 

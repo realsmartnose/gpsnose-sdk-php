@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnMashup
 {
@@ -11,20 +14,19 @@ class GnMashup
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->CommunityTag = $json->{"CommunityTag"};
-            $this->ValidationKey = $json->{"ValidationKey"};
-            $this->AppKey = $json->{"AppKey"};
-            $this->ValidationTicks = $json->{"ValidationTicks"};
-            $this->SubCommunities = $json->{"SubCommunities"} ?: [];
-            $this->Hosts = $json->{"Hosts"} ?: [];
-            $this->CallHistory = $json->{"CallHistory"} ?: [];
-            $this->ExceededQuotaHistory = $json->{"ExceededQuotaHistory"} ?: [];
-            $this->MaxCallsDaily = $json->{"MaxCallsDaily"} + 0;
-            $this->MaxCallsMonthly = $json->{"MaxCallsMonthly"} + 0;
-            $this->MaxSubSites = $json->{"MaxSubSites"} + 0;
-            $this->MaxHosts = $json->{"MaxHosts"} + 0;
-            $this->MashupTokenCallbackUrl = $json->{"MashupTokenCallbackUrl"};
-
+            $this->CommunityTag = GnUtil::GetSaveProperty($json, "CommunityTag");
+            $this->ValidationKey = GnUtil::GetSaveProperty($json, "ValidationKey");
+            $this->AppKey = GnUtil::GetSaveProperty($json, "AppKey");
+            $this->ValidationTicks = GnUtil::GetSaveProperty($json, "ValidationTicks");
+            $this->SubCommunities = GnUtil::GetSaveProperty($json, "SubCommunities") ?: [];
+            $this->Hosts = GnUtil::GetSaveProperty($json, "Hosts") ?: [];
+            $this->CallHistory = GnUtil::GetSaveProperty($json, "CallHistory") ?: [];
+            $this->ExceededQuotaHistory = GnUtil::GetSaveProperty($json, "ExceededQuotaHistory") ?: [];
+            $this->MaxCallsDaily = GnUtil::GetSaveProperty($json, "MaxCallsDaily") + 0;
+            $this->MaxCallsMonthly = GnUtil::GetSaveProperty($json, "MaxCallsMonthly") + 0;
+            $this->MaxSubSites = GnUtil::GetSaveProperty($json, "MaxSubSites") + 0;
+            $this->MaxHosts = GnUtil::GetSaveProperty($json, "MaxHosts") + 0;
+            $this->MashupTokenCallbackUrl = GnUtil::GetSaveProperty($json, "MashupTokenCallbackUrl");
         }
     }
 

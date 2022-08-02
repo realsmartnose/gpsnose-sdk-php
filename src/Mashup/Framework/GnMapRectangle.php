@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Framework;
 
 /**
@@ -16,12 +17,12 @@ class GnMapRectangle
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->Zoom = $json->{"Zoom"} + 0;
-            $this->Center = new GnMapPoint($json->{"Center"});
-            $this->Vertex0 = new GnMapPoint($json->{"Vertex0"});
-            $this->Vertex1 = new GnMapPoint($json->{"Vertex1"});
-            $this->Vertex2 = new GnMapPoint($json->{"Vertex2"});
-            $this->Vertex3 = new GnMapPoint($json->{"Vertex3"});
+            $this->Zoom = GnUtil::GetSaveProperty($json, "Zoom") + 0;
+            $this->Center = new GnMapPoint(GnUtil::GetSaveProperty($json, "Center"));
+            $this->Vertex0 = new GnMapPoint(GnUtil::GetSaveProperty($json, "Vertex0"));
+            $this->Vertex1 = new GnMapPoint(GnUtil::GetSaveProperty($json, "Vertex1"));
+            $this->Vertex2 = new GnMapPoint(GnUtil::GetSaveProperty($json, "Vertex2"));
+            $this->Vertex3 = new GnMapPoint(GnUtil::GetSaveProperty($json, "Vertex3"));
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Api\Modules;
 
 use GpsNose\Framework\GnUtility;
@@ -194,7 +195,7 @@ abstract class GnApiModuleBase
         // use cache|POST to read the result
         $resData = (string)GnCache::Instance()->GetCachedItem($this->cacheKey, $this->cacheGroup, $cacheTtl, function () use ($url, $reqJson, $reqGet) {
             $ch = curl_init($url);
-            if (! $reqGet) {
+            if (!$reqGet) {
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $reqJson);
                 curl_setopt($ch, CURLOPT_HTTPHEADER, array(
                     'Content-Type:application/json'
@@ -225,11 +226,11 @@ abstract class GnApiModuleBase
             }
 
             // ok or err?
-            $errCode = $json->{"ErrorCode"} + 0;
+            $errCode = GnUtil::GetSaveProperty($json, "ErrorCode") + 0;
             if ($errCode > 0) {
                 $this->ResetCachedResut();
 
-                $msg = $json->{"Message"};
+                $msg = GnUtil::GetSaveProperty($json, "Message");
                 if (GnApi::$Debug) {
                     GnLogger::Error("GpsNose API error: {$msg}");
                 }

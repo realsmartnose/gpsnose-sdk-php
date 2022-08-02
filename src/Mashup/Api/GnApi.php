@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Api;
 
 use GpsNose\SDK\Mashup\GnPaths;

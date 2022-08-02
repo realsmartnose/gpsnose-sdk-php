@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Framework;
 
 /**
@@ -16,8 +17,8 @@ class GnMapPoint
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->Latitude = $json->{"Latitude"} + 0;
-            $this->Longitude = $json->{"Longitude"} + 0;
+            $this->Latitude = GnUtil::GetSaveProperty($json, "Latitude") + 0;
+            $this->Longitude = GnUtil::GetSaveProperty($json, "Longitude") + 0;
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
 
 class GnNose extends GnAroundBase

@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Framework\Logging;
 
 interface GnILogListener

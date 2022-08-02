@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Framework;
 
 use GpsNose\SDK\Framework\Logging\GnLogger;
@@ -11,7 +12,7 @@ class GnException extends \Exception
      */
     public function __construct(string $msg = null)
     {
-        parent::__construct($msg, null, null);
+        parent::__construct($msg, 0, null);
         GnLogger::LogException($this);
     }
 }

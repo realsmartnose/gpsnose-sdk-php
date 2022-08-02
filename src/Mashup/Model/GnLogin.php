@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnLogin
 {
@@ -11,14 +14,14 @@ class GnLogin
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->LoginName = $json->{"LoginName"};
-            $this->IsActivated = $json->{"IsActivated"};
-            $this->FullName = $json->{"FullName"};
-            $this->Communities = $json->{"Communities"} ?: [];
-            $this->Email = $json->{"Email"};
-            $this->IsSafeMode = $json->{"IsSafeMode"};
-            $this->Latitude = floatval($json->{"Latitude"});
-            $this->Longitude = floatval($json->{"Longitude"});
+            $this->LoginName = GnUtil::GetSaveProperty($json, "LoginName");
+            $this->IsActivated = GnUtil::GetSaveProperty($json, "IsActivated");
+            $this->FullName = GnUtil::GetSaveProperty($json, "FullName");
+            $this->Communities = GnUtil::GetSaveProperty($json, "Communities") ?: [];
+            $this->Email = GnUtil::GetSaveProperty($json, "Email");
+            $this->IsSafeMode = GnUtil::GetSaveProperty($json, "IsSafeMode");
+            $this->Latitude = floatval(GnUtil::GetSaveProperty($json, "Latitude"));
+            $this->Longitude = floatval(GnUtil::GetSaveProperty($json, "Longitude"));
         }
     }
 

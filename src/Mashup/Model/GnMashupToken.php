@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnMashupToken
 {
@@ -11,24 +14,24 @@ class GnMashupToken
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->Payload = $json->{"Payload"};
-            $this->ScannedByLoginName = $json->{"ScannedByLoginName"};
-            $this->ScannedTicks = $json->{"ScannedTicks"};
-            $this->RecordedTicks = $json->{"RecordedTicks"};
-            $this->ScannedLatitude = $json->{"ScannedLatitude"} + 0;
-            $this->ScannedLongitude = $json->{"ScannedLongitude"} + 0;
-            $this->CallbackResponseHttpCode = $json->{"CallbackResponseHttpCode"} + 0;
-            $this->CallbackResponseMessage = $json->{"CallbackResponseMessage"};
-            $this->IsBatchCompleted = strtolower($json->{"IsBatchCompleted"}) == "true";
-            $this->Amount = $json->{"Amount"} + 0;
-            $this->Comment = $json->{"Comment"};
-            $this->IsGpsSharingWanted = strtolower($json->{"IsGpsSharingWanted"}) == "true";
-            $this->ValuePerUnit = $json->{"ValuePerUnit"} + 0;
-            $this->Label = $json->{"Label"};
-            $this->ValidUntilTicks = $json->{"ValidUntilTicks"};
-            $this->CreationTicks = $json->{"CreationTicks"};
-            $this->CreatedByLoginName = $json->{"CreatedByLoginName"};
-            $this->BatchCreationTicks = $json->{"BatchCreationTicks"};
+            $this->Payload = GnUtil::GetSaveProperty($json, "Payload");
+            $this->ScannedByLoginName = GnUtil::GetSaveProperty($json, "ScannedByLoginName");
+            $this->ScannedTicks = GnUtil::GetSaveProperty($json, "ScannedTicks");
+            $this->RecordedTicks = GnUtil::GetSaveProperty($json, "RecordedTicks");
+            $this->ScannedLatitude = GnUtil::GetSaveProperty($json, "ScannedLatitude") + 0;
+            $this->ScannedLongitude = GnUtil::GetSaveProperty($json, "ScannedLongitude") + 0;
+            $this->CallbackResponseHttpCode = GnUtil::GetSaveProperty($json, "CallbackResponseHttpCode") + 0;
+            $this->CallbackResponseMessage = GnUtil::GetSaveProperty($json, "CallbackResponseMessage");
+            $this->IsBatchCompleted = strtolower(GnUtil::GetSaveProperty($json, "IsBatchCompleted")) == "true";
+            $this->Amount = GnUtil::GetSaveProperty($json, "Amount") + 0;
+            $this->Comment = GnUtil::GetSaveProperty($json, "Comment");
+            $this->IsGpsSharingWanted = strtolower(GnUtil::GetSaveProperty($json, "IsGpsSharingWanted")) == "true";
+            $this->ValuePerUnit = GnUtil::GetSaveProperty($json, "ValuePerUnit") + 0;
+            $this->Label = GnUtil::GetSaveProperty($json, "Label");
+            $this->ValidUntilTicks = GnUtil::GetSaveProperty($json, "ValidUntilTicks");
+            $this->CreationTicks = GnUtil::GetSaveProperty($json, "CreationTicks");
+            $this->CreatedByLoginName = GnUtil::GetSaveProperty($json, "CreatedByLoginName");
+            $this->BatchCreationTicks = GnUtil::GetSaveProperty($json, "BatchCreationTicks");
         }
     }
 

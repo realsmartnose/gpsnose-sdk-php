@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnCommunity
 {
@@ -11,12 +14,12 @@ class GnCommunity
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->CreationUtcTicks = $json->{"CreationUtcTicks"};
-            $this->CreatorLoginName = $json->{"CreatorLoginName"};
-            $this->MembersCount = $json->{"MembersCount"} + 0;
-            $this->Description = $json->{"Description"};
-            $this->AclsInt = $json->{"AclsInt"} + 0;
-            $this->Admins = $json->{"Admins"} ?: [];
+            $this->CreationUtcTicks = GnUtil::GetSaveProperty($json, "CreationUtcTicks");
+            $this->CreatorLoginName = GnUtil::GetSaveProperty($json, "CreatorLoginName");
+            $this->MembersCount = GnUtil::GetSaveProperty($json, "MembersCount") + 0;
+            $this->Description = GnUtil::GetSaveProperty($json, "Description");
+            $this->AclsInt = GnUtil::GetSaveProperty($json, "AclsInt") + 0;
+            $this->Admins = GnUtil::GetSaveProperty($json, "Admins") ?: [];
         }
     }
 

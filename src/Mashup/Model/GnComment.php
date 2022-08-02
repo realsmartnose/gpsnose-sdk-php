@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnComment
 {
@@ -11,10 +14,10 @@ class GnComment
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->CreationTicks = $json->{"CreationTicks"};
-            $this->Creator = $json->{"Creator"};
-            $this->Mood = $json->{"Mood"};
-            $this->Text = $json->{"Text"};
+            $this->CreationTicks = GnUtil::GetSaveProperty($json, "CreationTicks");
+            $this->Creator = GnUtil::GetSaveProperty($json, "Creator");
+            $this->Mood = GnUtil::GetSaveProperty($json, "Mood");
+            $this->Text = GnUtil::GetSaveProperty($json, "Text");
         }
     }
 

@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Api\Modules;
 
 use GpsNose\SDK\Mashup\Model\CreatedEntities\GnTrackType;

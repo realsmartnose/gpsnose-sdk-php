@@ -1,6 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model\CreatedEntities;
 
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnTrack extends GnAroundBase
@@ -14,12 +16,12 @@ class GnTrack extends GnAroundBase
     {
         parent::__construct($json);
         if ($json != null) {
-            $this->Name = $json->{"Name"};
-            $this->Description = $json->{"Description"};
-            $this->TrackType = $json->{"TrackType"} + 0;
-            $this->EndedUtcTicks = $json->{"EndedUtcTicks"};
-            $this->RatingCount = $json->{"RatingCount"} + 0;
-            $this->RatingAvgPercent = $json->{"RatingAvgPercent"} + 0;
+            $this->Name = GnUtil::GetSaveProperty($json, "Name");
+            $this->Description = GnUtil::GetSaveProperty($json, "Description");
+            $this->TrackType = GnUtil::GetSaveProperty($json, "TrackType") + 0;
+            $this->EndedUtcTicks = GnUtil::GetSaveProperty($json, "EndedUtcTicks");
+            $this->RatingCount = GnUtil::GetSaveProperty($json, "RatingCount") + 0;
+            $this->RatingAvgPercent = GnUtil::GetSaveProperty($json, "RatingAvgPercent") + 0;
         }
     }
 

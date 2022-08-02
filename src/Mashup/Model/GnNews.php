@@ -1,6 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
 
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 use GpsNose\SDK\Mashup\Model\CreatedEntities\GnTrackType;
 
 class GnNews
@@ -13,70 +15,70 @@ class GnNews
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->NewsType = $json->{"NewsType"};
-            $this->CreationTicks = $json->{"CreationTicks"};
-            $this->Title = $json->{"Title"};
-            $this->Description = $json->{"Description"};
-            $this->Creator = $json->{"Creator"};
-            $this->Keywords = $json->{"Keywords"};
-            $this->IsNowDeleted = $json->{"IsNowDeleted"};
-            $this->TargetCommunity = $json->{"TargetCommunity"};
+            $this->NewsType = GnUtil::GetSaveProperty($json, "NewsType");
+            $this->CreationTicks = GnUtil::GetSaveProperty($json, "CreationTicks");
+            $this->Title = GnUtil::GetSaveProperty($json, "Title");
+            $this->Description = GnUtil::GetSaveProperty($json, "Description");
+            $this->Creator = GnUtil::GetSaveProperty($json, "Creator");
+            $this->Keywords = GnUtil::GetSaveProperty($json, "Keywords");
+            $this->IsNowDeleted = GnUtil::GetSaveProperty($json, "IsNowDeleted");
+            $this->TargetCommunity = GnUtil::GetSaveProperty($json, "TargetCommunity");
 
             // about
-            $this->About_NewAbout = $json->{"About_NewAbout"};
+            $this->About_NewAbout = GnUtil::GetSaveProperty($json, "About_NewAbout");
 
             // profile-image
-            $this->ProfileImage_WasDataUploaded = $json->{"ProfileImage_WasDataUploaded"};
+            $this->ProfileImage_WasDataUploaded = GnUtil::GetSaveProperty($json, "ProfileImage_WasDataUploaded");
 
             // published-poi
-            $this->PoiPublished_Latitude = floatval($json->{"PoiPublished_Latitude"});
-            $this->PoiPublished_Longitude = floatval($json->{"PoiPublished_Longitude"});
-            $this->PoiPublished_Name = $json->{"PoiPublished_Name"};
-            $this->PoiPublished_CreationTicks = $json->{"PoiPublished_CreationTicks"};
+            $this->PoiPublished_Latitude = floatval(GnUtil::GetSaveProperty($json, "PoiPublished_Latitude"));
+            $this->PoiPublished_Longitude = floatval(GnUtil::GetSaveProperty($json, "PoiPublished_Longitude"));
+            $this->PoiPublished_Name = GnUtil::GetSaveProperty($json, "PoiPublished_Name");
+            $this->PoiPublished_CreationTicks = GnUtil::GetSaveProperty($json, "PoiPublished_CreationTicks");
 
             // rating
-            $this->Rating_Comment = $json->{"Rating_Comment"};
-            $this->Rating_Percent = $json->{"Rating_Percent"} + 0;
-            $this->Rating_RatedItemId = $json->{"Rating_RatedItemId"};
-            $this->Rating_RatedItemName = $json->{"Rating_RatedItemName"};
-            $this->Rating_RatedItemType = $json->{"Rating_RatedItemType"};
-            $this->Rating_RatedItemLatitude = floatval($json->{"Rating_RatedItemLatitude"});
-            $this->Rating_RatedItemLongitude = floatval($json->{"Rating_RatedItemLongitude"});
+            $this->Rating_Comment = GnUtil::GetSaveProperty($json, "Rating_Comment");
+            $this->Rating_Percent = GnUtil::GetSaveProperty($json, "Rating_Percent") + 0;
+            $this->Rating_RatedItemId = GnUtil::GetSaveProperty($json, "Rating_RatedItemId");
+            $this->Rating_RatedItemName = GnUtil::GetSaveProperty($json, "Rating_RatedItemName");
+            $this->Rating_RatedItemType = GnUtil::GetSaveProperty($json, "Rating_RatedItemType");
+            $this->Rating_RatedItemLatitude = floatval(GnUtil::GetSaveProperty($json, "Rating_RatedItemLatitude"));
+            $this->Rating_RatedItemLongitude = floatval(GnUtil::GetSaveProperty($json, "Rating_RatedItemLongitude"));
 
             // impressions
-            $this->Impression_CreationTicks = $json->{"Impression_CreationTicks"};
-            $this->Impression_Mood = $json->{"Impression_Mood"};
-            $this->Impression_Text = $json->{"Impression_Text"};
-            $this->Impression_IsNavigable = $json->{"Impression_IsNavigable"};
+            $this->Impression_CreationTicks = GnUtil::GetSaveProperty($json, "Impression_CreationTicks");
+            $this->Impression_Mood = GnUtil::GetSaveProperty($json, "Impression_Mood");
+            $this->Impression_Text = GnUtil::GetSaveProperty($json, "Impression_Text");
+            $this->Impression_IsNavigable = GnUtil::GetSaveProperty($json, "Impression_IsNavigable");
 
             // comments
-            $this->Comment_Mood = $json->{"Comment_Mood"};
-            $this->Comment_Text = $json->{"Comment_Text"};
-            $this->Comment_CommentItemId = $json->{"Comment_CommentItemId"};
-            $this->Comment_CommentItemName = $json->{"Comment_CommentItemName"};
-            $this->Comment_CommentItemType = $json->{"Comment_CommentItemType"};
-            $this->Comment_CommentItemLatitude = floatval($json->{"Comment_CommentItemLatitude"});
-            $this->Comment_CommentItemLongitude = floatval($json->{"Comment_CommentItemLongitude"});
+            $this->Comment_Mood = GnUtil::GetSaveProperty($json, "Comment_Mood");
+            $this->Comment_Text = GnUtil::GetSaveProperty($json, "Comment_Text");
+            $this->Comment_CommentItemId = GnUtil::GetSaveProperty($json, "Comment_CommentItemId");
+            $this->Comment_CommentItemName = GnUtil::GetSaveProperty($json, "Comment_CommentItemName");
+            $this->Comment_CommentItemType = GnUtil::GetSaveProperty($json, "Comment_CommentItemType");
+            $this->Comment_CommentItemLatitude = floatval(GnUtil::GetSaveProperty($json, "Comment_CommentItemLatitude"));
+            $this->Comment_CommentItemLongitude = floatval(GnUtil::GetSaveProperty($json, "Comment_CommentItemLongitude"));
 
             // tours
-            $this->Track_CreationTicks = $json->{"Track_CreationTicks"};
-            $this->Track_Name = $json->{"Track_Name"};
-            $this->Track_Description = $json->{"Track_Description"};
-            $this->Track_StartLatitude = floatval($json->{"Track_StartLatitude"});
-            $this->Track_StartLongitude = floatval($json->{"Track_StartLongitude"});
-            $this->Track_StartAltitude = floatval($json->{"Track_StartAltitude"});
-            $this->Track_TrackType = $json->{"Track_TrackType"} + 0;
+            $this->Track_CreationTicks = GnUtil::GetSaveProperty($json, "Track_CreationTicks");
+            $this->Track_Name = GnUtil::GetSaveProperty($json, "Track_Name");
+            $this->Track_Description = GnUtil::GetSaveProperty($json, "Track_Description");
+            $this->Track_StartLatitude = floatval(GnUtil::GetSaveProperty($json, "Track_StartLatitude"));
+            $this->Track_StartLongitude = floatval(GnUtil::GetSaveProperty($json, "Track_StartLongitude"));
+            $this->Track_StartAltitude = floatval(GnUtil::GetSaveProperty($json, "Track_StartAltitude"));
+            $this->Track_TrackType = GnUtil::GetSaveProperty($json, "Track_TrackType") + 0;
 
             // events
-            $this->Event_CreationTicks = $json->{"Event_CreationTicks"};
-            $this->Event_Name = $json->{"Event_Name"};
-            $this->Event_Description = $json->{"Event_Description"};
-            $this->Event_LocationAddress = $json->{"Event_LocationAddress"};
-            $this->Event_Latitude = floatval($json->{"Event_Latitude"});
-            $this->Event_Longitude = floatval($json->{"Event_Longitude"});
+            $this->Event_CreationTicks = GnUtil::GetSaveProperty($json, "Event_CreationTicks");
+            $this->Event_Name = GnUtil::GetSaveProperty($json, "Event_Name");
+            $this->Event_Description = GnUtil::GetSaveProperty($json, "Event_Description");
+            $this->Event_LocationAddress = GnUtil::GetSaveProperty($json, "Event_LocationAddress");
+            $this->Event_Latitude = floatval(GnUtil::GetSaveProperty($json, "Event_Latitude"));
+            $this->Event_Longitude = floatval(GnUtil::GetSaveProperty($json, "Event_Longitude"));
 
             // mashup
-            $this->Mashup_CommunityTag = $json->{"Mashup_CommunityTag"};
+            $this->Mashup_CommunityTag = GnUtil::GetSaveProperty($json, "Mashup_CommunityTag");
         }
     }
 

@@ -1,7 +1,9 @@
 <?php
+
 namespace GpsNose\SDK\Web\Login;
 
 use GpsNose\SDK\Framework\GnCryptor;
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnAuthentication
 {
@@ -36,7 +38,7 @@ class GnAuthentication
     {
         if (static::IsAuthenticatedRequest()) {
             unset($_COOKIE['GpsNoseAuthentication']);
-            setcookie('GpsNoseAuthentication', null, time() - 3600, '/');
+            setcookie('GpsNoseAuthentication', "", time() - 3600, '/');
         }
     }
 
@@ -52,9 +54,9 @@ class GnAuthentication
             $cookie = $cryptor->decrypt($_COOKIE['GpsNoseAuthentication']);
             $json = json_decode($cookie);
             $gnPrincipal = new GnPrincipal();
-            $gnPrincipal->LoginName = $json->{"LoginName"};
-            $gnPrincipal->LoginId = $json->{"LoginId"};
-            $gnPrincipal->ProfileTags = $json->{"ProfileTags"};
+            $gnPrincipal->LoginName = GnUtil::GetSaveProperty($json, "LoginName");
+            $gnPrincipal->LoginId = GnUtil::GetSaveProperty($json, "LoginId");
+            $gnPrincipal->ProfileTags = GnUtil::GetSaveProperty($json, "ProfileTags");
             return $gnPrincipal;
         }
         return null;

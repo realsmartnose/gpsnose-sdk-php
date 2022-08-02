@@ -1,5 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model;
+
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 
 class GnMashupStorageItem
 {
@@ -11,9 +14,9 @@ class GnMashupStorageItem
     public function __construct($json = null)
     {
         if ($json != null) {
-            $this->Key = $json->{"Key"};
-            $this->Value = $json->{"Value"};
-            $this->UpdatedTicks = $json->{"UpdatedTicks"};
+            $this->Key = GnUtil::GetSaveProperty($json, "Key");
+            $this->Value = GnUtil::GetSaveProperty($json, "Value");
+            $this->UpdatedTicks = GnUtil::GetSaveProperty($json, "UpdatedTicks");
         }
     }
 

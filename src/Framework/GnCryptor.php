@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Framework;
 
 use GpsNose\SDK\Framework\Logging\GnLogger;
@@ -21,7 +22,7 @@ class GnCryptor
      */
     public function __construct()
     {
-        if (! self::$pass) {
+        if (!self::$pass) {
             self::$pass = "GpsNoseQWERT" . session_id();
             GnLogger::Warning("Crypt-Pass not set. We use session-based password now...");
         }

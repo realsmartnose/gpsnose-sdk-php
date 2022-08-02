@@ -1,6 +1,8 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Model\CreatedEntities;
 
+use GpsNose\SDK\Mashup\Framework\GnUtil;
 use GpsNose\SDK\Mashup\Model\GnAroundBase;
 
 class GnPoI extends GnAroundBase
@@ -14,11 +16,11 @@ class GnPoI extends GnAroundBase
     {
         parent::__construct($json);
         if ($json != null) {
-            $this->Name = $json->{"Name"};
-            $this->Address = $json->{"Address"};
-            $this->RatingCount = $json->{"RatingCount"} + 0;
-            $this->RatingAvgPercent = $json->{"RatingAvgPercent"} + 0;
-            $this->ChangedTicks = $json->{"ChangedTicks"};
+            $this->Name = GnUtil::GetSaveProperty($json, "Name");
+            $this->Address = GnUtil::GetSaveProperty($json, "Address");
+            $this->RatingCount = GnUtil::GetSaveProperty($json, "RatingCount") + 0;
+            $this->RatingAvgPercent = GnUtil::GetSaveProperty($json, "RatingAvgPercent") + 0;
+            $this->ChangedTicks = GnUtil::GetSaveProperty($json, "ChangedTicks");
         }
     }
 

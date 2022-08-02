@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Mashup\Api\Modules;
 
 use GpsNose\SDK\Mashup\Model\GnMashupTokenOptions;
@@ -51,8 +52,8 @@ class GnMashupTokensApi extends GnApiModuleBase
         int $validToTicks = 0,
         float $valuePerUnit = 0.0,
         string $label = null,
-        int $options = GnMashupTokenOptions::NoOptions)
-    {
+        int $options = GnMashupTokenOptions::NoOptions
+    ) {
         $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
             "payload" => $payload,
             "validToTicks" => $validToTicks,
@@ -69,8 +70,8 @@ class GnMashupTokensApi extends GnApiModuleBase
         int $validToTicks = 0,
         float $valuePerUnit = 0.0,
         string $label = null,
-        int $options = GnMashupTokenOptions::NoOptions)
-    {
+        int $options = GnMashupTokenOptions::NoOptions
+    ) {
         $buf = $this->ExecuteCall("GenerateQrTokenForMashup", (object)[
             "payload" => $payload,
             "validToTicks" => $validToTicks,

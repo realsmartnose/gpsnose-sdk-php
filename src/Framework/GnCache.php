@@ -1,4 +1,5 @@
 <?php
+
 namespace GpsNose\SDK\Framework;
 
 use GpsNose\SDK\Framework\Logging\GnLogger;
@@ -61,7 +62,7 @@ class GnCache
      */
     private function __construct()
     {
-        if (! static::$CacheHandler && ! static::$DisableCache) {
+        if (!static::$CacheHandler && !static::$DisableCache) {
             $this->_memcached = new \Memcached();
             $this->_memcached->addServer(static::$MemcacheServer, static::$MemcachePort);
         }
@@ -94,7 +95,7 @@ class GnCache
         }
 
         // In case memcached is not available, use no cache
-        if (! static::$CacheHandler && ! $this->isMemcachedConnected() && $initFunc) {
+        if (!static::$CacheHandler && !$this->isMemcachedConnected() && $initFunc) {
             if (GnApi::$Debug) {
                 GnLogger::Warning("No cache-handler configured and Memcached not available");
             }
@@ -102,7 +103,7 @@ class GnCache
         }
 
         $val = static::$CacheHandler ? static::$CacheHandler->get($propName) : $this->_memcached->get($propName);
-        if (! $val && $initFunc) {
+        if (!$val && $initFunc) {
             $val = $initFunc();
             if (static::$CacheHandler) {
                 static::$CacheHandler->set($propName, $groupName, $val, $expiriesIn);
