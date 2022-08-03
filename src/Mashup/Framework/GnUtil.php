@@ -87,7 +87,7 @@ class GnUtil
      * @param string $property
      * @return mixed
      */
-    public static function GetSaveProperty($object, $property): mixed
+    public static function GetSaveProperty($object, $property)
     {
         if (is_array($object)) {
             if (key_exists($property, $object)) {
