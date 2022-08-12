@@ -1,3 +1,6 @@
+1.2.2
+- FIX: Fix GetSaveProperty
+
 1.2.1
 - FIX: Fix return value for PHP 7.4
 
