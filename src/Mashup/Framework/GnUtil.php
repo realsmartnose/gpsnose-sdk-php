@@ -89,14 +89,16 @@ class GnUtil
      */
     public static function GetSaveProperty($object, $property)
     {
-        if (is_array($object)) {
-            if (key_exists($property, $object)) {
-                return $object[$property];
+        if ($object && $property) {
+            if (is_array($object)) {
+                if (key_exists($property, $object)) {
+                    return $object[$property];
+                }
+                return null;
             }
-            return null;
-        }
-        if (property_exists($object, $property)) {
-            return $object->{$property};
+            if (property_exists($object, $property)) {
+                return $object->{$property};
+            }
         }
         return null;
     }
