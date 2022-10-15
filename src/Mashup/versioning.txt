@@ -1,3 +1,6 @@
+1.2.3
+- FIX: Fix PHP 8.x warning
+
 1.2.2
 - FIX: Fix GetSaveProperty
 

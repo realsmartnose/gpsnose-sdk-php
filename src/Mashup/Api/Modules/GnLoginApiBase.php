@@ -179,10 +179,13 @@ class GnLoginApiBase extends GnApiModuleBase
                 throw new GnException("community for mashup-admin must be not {GnSettings.GPSNOSE_COMMUNITY}");
             }
         }
+        if ($community != null) {
+            $community = strtolower(trim($community));
+        }
 
         $res = $this->ExecuteCall("GenerateQrCode", (object)[
             "loginId" => $this->_loginId,
-            "community" => strtolower(trim($community)),
+            "community" => $community,
             "activation" => $needsActivation,
             "mustJoin" => $mustJoin,
             "acls" => (int)$acls
