@@ -32,7 +32,7 @@ class GnPaths
      * DataUrl
      * @var string
      */
-    public static $DataUrl = "https://gpsnose.blob.core.windows.net";
+    public static $DataUrl = "https://gpsnoselive.blob.core.windows.net";
 
 
     /**
